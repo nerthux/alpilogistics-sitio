@@ -1,0 +1,125 @@
+---
+// Logo y menú de anclas (DEC-007). En el teléfono el menú se pliega en un
+// <details>: se abre y se cierra sin JavaScript; el script sólo lo cierra
+// al elegir una sección.
+import logo from '../assets/logo.svg?url';
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['menu'];
+  titulo: string;
+}
+
+const { t, titulo } = Astro.props;
+---
+
+<header class="encabezado">
+  <div class="contenedor fila">
+    <a href="#inicio" class="marca">
+      <img src={logo} alt={titulo} width="990" height="640" />
+    </a>
+    <nav>
+      <details class="plegable">
+        <summary>{t.abrir}</summary>
+        <ul>
+          {t.enlaces.map((e) => <li><a href={e.href}>{e.texto}</a></li>)}
+        </ul>
+      </details>
+      <ul class="extendido">
+        {t.enlaces.map((e) => <li><a href={e.href}>{e.texto}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Sin esto el menú se abre y funciona igual; sólo se queda abierto
+  // encima de la sección a la que saltó.
+  document.querySelectorAll<HTMLDetailsElement>('.plegable').forEach((d) => {
+    d.addEventListener('click', (e) => {
+      if ((e.target as Element).closest('a')) d.open = false;
+    });
+  });
+</script>
+
+<style>
+  .encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--blanco);
+    box-shadow: 0 1px 0 rgb(58 80 89 / 0.15);
+  }
+  .fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--alto-encabezado);
+  }
+  .marca img {
+    display: block;
+    height: calc(var(--alto-encabezado) - 1rem);
+    width: auto;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: var(--gris);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover,
+  a:focus-visible {
+    color: var(--rojo);
+  }
+
+  .plegable {
+    position: relative;
+  }
+  .plegable summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--gris);
+    border-radius: 0.25rem;
+    font-weight: 600;
+  }
+  .plegable summary::-webkit-details-marker {
+    display: none;
+  }
+  .plegable[open] summary {
+    background: var(--gris);
+    color: var(--blanco);
+  }
+  .plegable ul {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    min-width: 12rem;
+    background: var(--blanco);
+    box-shadow: 0 0.5rem 1.5rem rgb(58 80 89 / 0.2);
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+  }
+  .plegable li a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .extendido {
+    display: none;
+  }
+
+  @media (min-width: 48rem) {
+    .plegable {
+      display: none;
+    }
+    .extendido {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+</style>

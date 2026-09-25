@@ -1,0 +1,34 @@
+---
+// Los trámites de USA, DMV y SCT.
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['tramites'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="tramites" class="seccion alterna">
+  <div class="contenedor">
+    <h2>{t.titulo}</h2>
+    <p class="intro">{t.intro}</p>
+
+    <div class="rejilla">
+      {
+        t.grupos.map((g) => (
+          <article class="tarjeta">
+            <h3>{g.titulo}</h3>
+            <ul>
+              {g.puntos.map((p) => (
+                <li>
+                  {'sigla' in p && <strong>{p.sigla}:</strong>} {p.nombre}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

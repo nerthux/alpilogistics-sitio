@@ -1,0 +1,54 @@
+---
+// Los tres grupos de servicios y lo demás que ofrece el sitio.
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['servicios'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="servicios" class="seccion">
+  <div class="contenedor">
+    <h2>{t.titulo}</h2>
+    <p class="intro">{t.intro}</p>
+
+    <div class="rejilla">
+      {
+        t.grupos.map((g) => (
+          <article class="tarjeta">
+            <h3>{g.titulo}</h3>
+            <ul>{g.puntos.map((p) => <li>{p}</li>)}</ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="ademas">
+      <h3>{t.ademasTitulo}</h3>
+      <ul>{t.ademas.map((a) => <li>{a}</li>)}</ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ademas {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--gris);
+    color: var(--blanco);
+    border-left: 0.5rem solid var(--celeste);
+    border-radius: 0.25rem;
+  }
+  .ademas h3 {
+    margin-top: 0;
+  }
+  .ademas ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.25rem 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+</style>

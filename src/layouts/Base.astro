@@ -1,0 +1,23 @@
+---
+// El esqueleto de la página, uno para los dos idiomas (DEC-008).
+import '../styles/global.css';
+
+interface Props {
+  lang: string;
+  titulo: string;
+}
+
+const { lang, titulo } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{titulo}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

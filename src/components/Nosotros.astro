@@ -1,0 +1,47 @@
+---
+// Historia, misión, visión, valores y departamentos.
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['nosotros'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="nosotros" class="seccion alterna">
+  <div class="contenedor">
+    <h2>{t.titulo}</h2>
+
+    <div class="historia">
+      <h3>{t.historiaTitulo}</h3>
+      {t.historia.map((p) => <p>{p}</p>)}
+    </div>
+
+    <div class="rejilla">
+      <article class="tarjeta">
+        <h3>{t.misionTitulo}</h3>
+        <p>{t.mision}</p>
+      </article>
+      <article class="tarjeta">
+        <h3>{t.visionTitulo}</h3>
+        <p>{t.vision}</p>
+      </article>
+      <article class="tarjeta">
+        <h3>{t.valoresTitulo}</h3>
+        <ul>{t.valores.map((v) => <li>{v}</li>)}</ul>
+      </article>
+      <article class="tarjeta">
+        <h3>{t.departamentosTitulo}</h3>
+        <ul>{t.departamentos.map((d) => <li>{d}</li>)}</ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .historia {
+    max-width: 44rem;
+    margin-bottom: 2rem;
+  }
+</style>

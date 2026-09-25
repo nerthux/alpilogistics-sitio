@@ -1,0 +1,64 @@
+---
+// Los dos departamentos y la dirección, con enlaces que se tocan (A7). El
+// mapa es un enlace, no un iframe; el formulario espera §3.B.
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['contacto'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contacto" class="seccion alterna">
+  <div class="contenedor">
+    <h2>{t.titulo}</h2>
+    <p class="intro">{t.intro}</p>
+
+    <h3>{t.directorioTitulo}</h3>
+    <div class="rejilla">
+      {
+        t.departamentos.map((d) => (
+          <article class="tarjeta">
+            <h4>{d.nombre}</h4>
+            <p>
+              {t.llamar}: <a href={`tel:${d.tel}`}>{d.telefono}</a>
+            </p>
+            <p>
+              {t.escribir}: <a href={`mailto:${d.correo}`}>{d.correo}</a>
+            </p>
+          </article>
+        ))
+      }
+      <article class="tarjeta">
+        <h4>{t.ubicacionTitulo}</h4>
+        <address>
+          {t.direccion.map((l) => <span>{l}</span>)}
+        </address>
+        <p><a href={t.mapaUrl} rel="noopener">{t.mapa}</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.125rem;
+    margin: 0 0 0.75rem;
+  }
+  .tarjeta p {
+    margin: 0.25rem 0;
+  }
+  a {
+    color: var(--rojo);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+</style>

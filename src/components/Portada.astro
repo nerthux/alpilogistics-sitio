@@ -1,0 +1,117 @@
+---
+// El lema sobre la foto del tractocamión, la única foto del sitio (DEC-010),
+// y quiénes somos.
+import { Picture } from 'astro:assets';
+import tractocamion from '../assets/tractocamion.jpg';
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['portada'];
+  telefono: { texto: string; tel: string };
+}
+
+const { t, telefono } = Astro.props;
+---
+
+<section id="inicio" class="portada">
+  <div class="foto">
+    <Picture
+      src={tractocamion}
+      alt={t.fotoAlt}
+      formats={['avif', 'webp']}
+      widths={[640, 960, 1280]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="contenedor sobre">
+      <h1>{t.lema}</h1>
+      <p>{t.reconocidos}</p>
+      <div class="acciones">
+        <a class="boton" href="#contacto">{t.contactanos}</a>
+        <span>{t.llamanos} <a href={`tel:${telefono.tel}`}>{telefono.texto}</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="contenedor quienes">
+    <h2>{t.quienesTitulo}</h2>
+    {t.quienes.map((p) => <p>{p}</p>)}
+    <ul>
+      {t.clientes.map((c) => <li>{c}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .foto {
+    position: relative;
+    min-height: 32rem;
+    display: flex;
+    align-items: flex-end;
+    color: var(--blanco);
+  }
+  .foto :global(picture),
+  .foto :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30% center;
+  }
+  .foto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(58 80 89 / 0.95) 20%, rgb(58 80 89 / 0.35));
+  }
+  .sobre {
+    position: relative;
+    z-index: 1;
+    padding-block: 3rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    max-width: 18ch;
+    margin: 0 0 1rem;
+  }
+  .sobre p {
+    max-width: 40rem;
+    margin: 0 0 1.5rem;
+  }
+  .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+  .acciones span a {
+    color: var(--celeste);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .quienes {
+    padding-block: 3rem;
+  }
+  .quienes h2 {
+    color: var(--rojo);
+  }
+  .quienes p {
+    max-width: 44rem;
+  }
+  .quienes ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .quienes li {
+    border: 2px solid var(--celeste);
+    border-radius: 999px;
+    padding: 0.25rem 1rem;
+    font-weight: 600;
+  }
+</style>

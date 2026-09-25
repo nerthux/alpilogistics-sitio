@@ -1,0 +1,49 @@
+---
+// El logo para fondo oscuro y Facebook.
+import logoOscuro from '../assets/logo-oscuro.svg?url';
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['pie'];
+  titulo: string;
+}
+
+const { t, titulo } = Astro.props;
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor fila">
+    <img src={logoOscuro} alt={titulo} width="990" height="640" />
+    <div>
+      <p><a href={t.facebookUrl} rel="noopener">{t.facebook}</a></p>
+      <p>© {anio} {t.derechos}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    background: var(--gris);
+    color: var(--blanco);
+    padding-block: 2rem;
+  }
+  .fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  img {
+    height: 5rem;
+    width: auto;
+  }
+  p {
+    margin: 0.25rem 0;
+  }
+  a {
+    color: var(--celeste);
+    font-weight: 600;
+  }
+</style>
