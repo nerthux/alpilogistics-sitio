@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="290 197 400 400">
+  <defs>
+    <mask id="reticula">
+      <circle cx="490" cy="397" r="200" fill="#fff"/>
+      <g transform="translate(490 397) rotate(-45)" fill="none" stroke="#000" stroke-width="20">
+        <path d="M-104-200V200M88-200V200M-200-6H200"/>
+      </g>
+    </mask>
+  </defs>
+  <circle cx="490" cy="397" r="200" fill="#81E8FF" mask="url(#reticula)"/>
+  <path d="M331 589H380L614 334V589H647V274H617Z" fill="#8E0000"/>
+</svg>

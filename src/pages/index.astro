@@ -1,14 +1,45 @@
 ---
-// Provisional: la página de verdad llega con la tarea 3 del sprint.
+// Provisional: muestra la marca para revisarla; la página de verdad llega
+// con la tarea 3 del sprint.
+import '../styles/global.css';
+import logo from '../assets/logo.svg?url';
+import logoOscuro from '../assets/logo-oscuro.svg?url';
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>ALPI Logistics</title>
   </head>
   <body>
-    <h1>ALPI Logistics</h1>
+    <main>
+      <img src={logo} alt="ALPI Logistics" width="990" height="640" />
+      <div class="oscuro">
+        <img src={logoOscuro} alt="ALPI Logistics" width="990" height="640" />
+      </div>
+      <h1>Entrega de mercancía en tiempo y forma</h1>
+      <p>
+        Texto de muestra en Inter, con acentos y eñes: logística binacional
+        entre Tijuana, Mexicali, San Diego y Los Ángeles.
+      </p>
+    </main>
   </body>
 </html>
+
+<style>
+  main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .oscuro {
+    background: var(--gris);
+  }
+</style>

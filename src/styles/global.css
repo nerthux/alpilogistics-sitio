@@ -1,0 +1,38 @@
+/* La marca de ALPI Logistics (PLAN_sitio A5): paleta y tipografía.
+   Archivo para títulos e Inter para texto, autoalojadas (DEC-009); sólo
+   los pesos que se usan y el subconjunto latin, que trae los acentos. */
+@import '@fontsource/archivo/latin-700.css';
+@import '@fontsource/archivo/latin-800.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-600.css';
+
+:root {
+  --rojo: #8e0000;
+  --celeste: #81e8ff;
+  --gris: #3a5059;
+  --blanco: #ffffff;
+
+  --fuente-titulos: 'Archivo', system-ui, sans-serif;
+  --fuente-texto: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--blanco);
+  color: var(--gris);
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+h3 {
+  font-weight: 700;
+}

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="255 158 990 640" role="img" aria-label="ALPI Logistics">
+  <defs>
+    <mask id="reticula">
+      <circle cx="490" cy="397" r="200" fill="#fff"/>
+      <g transform="translate(490 397) rotate(-45)" fill="none" stroke="#000" stroke-width="12">
+        <path d="M-104-200V200M-6-200V200M88-200V200M-200-6H200"/>
+        <ellipse rx="200" ry="115"/>
+      </g>
+    </mask>
+  </defs>
+  <circle cx="490" cy="397" r="200" fill="#81E8FF" mask="url(#reticula)"/>
+  <g fill="#FFFFFF">
+    <path d="M331 589H380L614 334V589H647V274H617Z"/>
+    <path d="M716 274H751V554H874V589H716Z"/>
+    <rect x="917" y="276" width="35" height="313"/>
+    <rect x="1193" y="274" width="35" height="315"/>
+  </g>
+  <path d="M917 293.5H1019A101 101 0 0 1 1019 495.5H1005" fill="none" stroke="#FFFFFF" stroke-width="35"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="5">
+    <path d="M1212 251.5L1193 226A24 24 0 1 1 1231 226Z" stroke-linejoin="round"/>
+    <circle cx="1211.5" cy="206.5" r="12"/>
+    <path d="M447.5 644V745Q447.5 757.5 460 757.5H468"/>
+    <circle cx="540.5" cy="721.5" r="36"/>
+    <circle cx="657.5" cy="721.5" r="36"/>
+    <path d="M694 684V758C694 800 640 800 631 779"/>
+    <path d="M739.5 644V655M739.5 685V760M937.5 644V655M937.5 685V760"/>
+    <path id="s" d="M833.5 698C833.5 688 823 684 808 684C792 684 781.5 690 781.5 702.5C781.5 715 793 721 808 721C823 721 833.5 727 833.5 740C833.5 752 823 758 808 758C792 758 781.5 752 781.5 742"/>
+    <use href="#s" x="310"/>
+    <path d="M885.5 644V760M866 685.5H904"/>
+    <path d="M1046 699.5A36 36 0 1 0 1046 743.5"/>
+  </g>
+  <path d="M352 512C300 480 275 440 286 392L262 393L304 344L320 395L297 393C292 440 312 480 352 512Z" fill="#FFFFFF"/>
+  <path d="M628 236C690 262 712 320 690 360L712 356L672 400L668 350L684 356C700 316 680 262 628 236Z" fill="#8FA0A7"/>
+  <path d="M645 455C600 500 540 520 480 518L486 506L419 526L470 550L476 530C540 532 606 506 645 455Z" fill="#C5CFD3"/>
+  <g stroke="#C5CCCF" stroke-width="6" fill="#ECEFF0">
+    <circle cx="367" cy="252" r="81"/>
+    <circle cx="552" cy="581" r="45"/>
+  </g>
+  <g fill="none" stroke="#3A5059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="367" cy="252" r="69"/>
+    <circle cx="552" cy="581" r="38"/>
+    <path d="M338 270V232H396L408 250H418Q424 250 424 257V270Z"/>
+    <path d="M396 232V250H408"/>
+    <circle cx="356" cy="271" r="7" fill="#ECEFF0"/>
+    <circle cx="403" cy="271" r="7" fill="#ECEFF0"/>
+    <path d="M318 238H332M322 248H334M314 258H330M324 266H334"/>
+    <path d="M530 568H574V596H530ZM530 568L535 561H569L574 568M546 568V580L552 576L558 580V568M558 588H566M561 592H566"/>
+  </g>
+</svg>
+
