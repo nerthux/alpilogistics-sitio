@@ -28,7 +28,17 @@ const { t } = Astro.props;
     margin: 0;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  }
+  /* Son cuatro: una, dos o cuatro columnas, para que ninguna quede sola. */
+  @media (min-width: 36rem) {
+    .ciudades {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 60rem) {
+    .ciudades {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
   .ciudades li {
     font-family: var(--fuente-titulos);

@@ -66,7 +66,10 @@ const { t, telefono } = Astro.props;
     inset: 0;
     background: linear-gradient(to top, rgb(58 80 89 / 0.95) 20%, rgb(58 80 89 / 0.35));
   }
+  /* flex: 1 para que ocupe el ancho del contenedor: si no, se encoge al
+     texto y margin-inline: auto lo centra, fuera de línea con el logo. */
   .sobre {
+    flex: 1;
     position: relative;
     z-index: 1;
     padding-block: 3rem;

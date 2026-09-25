@@ -6,6 +6,9 @@
 export const es = {
   lang: 'es',
   titulo: 'ALPI Logistics',
+  // Para buscadores (PLAN_sitio A8): «¿Quiénes somos?» en una línea.
+  descripcion:
+    'ALPI Logistics es una empresa binacional de logística y transporte. Brindamos apoyo a maquiladoras, agencias aduanales, brokerages y transportistas.',
 
   menu: {
     abrir: 'Menú',

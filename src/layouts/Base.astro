@@ -5,9 +5,10 @@ import '../styles/global.css';
 interface Props {
   lang: string;
   titulo: string;
+  descripcion: string;
 }
 
-const { lang, titulo } = Astro.props;
+const { lang, titulo, descripcion } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -16,6 +17,7 @@ const { lang, titulo } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
   </head>
   <body>
     <slot />
