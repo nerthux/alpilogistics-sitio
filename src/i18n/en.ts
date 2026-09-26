@@ -66,6 +66,7 @@ export const en: Textos = {
     grupos: [
       {
         titulo: 'Operations',
+        icono: 'operaciones',
         puntos: [
           'Chassis operation',
           'Operations services at the port of Ensenada',
@@ -80,6 +81,7 @@ export const en: Textos = {
       },
       {
         titulo: 'Documentation and permits',
+        icono: 'documentacion',
         puntos: [
           'In-Bond documentation (T&E)',
           'U.S. transit permits',
@@ -91,6 +93,7 @@ export const en: Textos = {
       },
       {
         titulo: 'Benefits',
+        icono: 'beneficios',
         puntos: [
           'Warehouse in San Diego and Tijuana',
           'Yard in San Diego',
@@ -116,6 +119,7 @@ export const en: Textos = {
     grupos: [
       {
         titulo: 'USA',
+        icono: 'usa',
         puntos: [
           { sigla: 'PNP', nombre: 'Pull Notice Program' },
           { sigla: 'SCAC', nombre: 'Standard Carrier Alpha Code' },
@@ -128,6 +132,7 @@ export const en: Textos = {
       },
       {
         titulo: 'DMV',
+        icono: 'dmv',
         puntos: [
           { nombre: 'Renewals' },
           { nombre: 'Change of ownership' },
@@ -137,6 +142,7 @@ export const en: Textos = {
       },
       {
         titulo: 'SCT',
+        icono: 'sct',
         puntos: [
           { nombre: 'Renewals' },
           { nombre: 'Change of ownership' },
@@ -153,6 +159,7 @@ export const en: Textos = {
     intro: 'Our main goal is to keep expanding our routes throughout the United States.',
     ciudades: ['Tijuana', 'Mexicali', 'San Diego', 'Los Angeles'],
     todo: 'Deliveries throughout the United States',
+    mapa: 'Route map: from Tijuana to Mexicali, San Diego and Los Angeles, and on to the rest of the United States',
   },
 
   contacto: {

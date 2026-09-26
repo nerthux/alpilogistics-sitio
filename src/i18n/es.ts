@@ -66,6 +66,7 @@ export const es = {
     grupos: [
       {
         titulo: 'Operaciones',
+        icono: 'operaciones',
         puntos: [
           'Operación de chasis',
           'Servicios de operaciones en el puerto de Ensenada',
@@ -80,6 +81,7 @@ export const es = {
       },
       {
         titulo: 'Documentación y permisos',
+        icono: 'documentacion',
         puntos: [
           'Documentación In-Bond (T&E)',
           'Permisos de tránsito en EE. UU.',
@@ -91,6 +93,7 @@ export const es = {
       },
       {
         titulo: 'Beneficios',
+        icono: 'beneficios',
         puntos: [
           'Almacén en San Diego y Tijuana',
           'Yarda en San Diego',
@@ -117,6 +120,7 @@ export const es = {
     grupos: [
       {
         titulo: 'USA',
+        icono: 'usa',
         puntos: [
           { sigla: 'PNP', nombre: 'Pull Notice Program' },
           { sigla: 'SCAC', nombre: 'Standard Carrier Alpha Code' },
@@ -129,6 +133,7 @@ export const es = {
       },
       {
         titulo: 'DMV',
+        icono: 'dmv',
         puntos: [
           { nombre: 'Renovaciones' },
           { nombre: 'Cambio de propietario' },
@@ -138,6 +143,7 @@ export const es = {
       },
       {
         titulo: 'SCT',
+        icono: 'sct',
         puntos: [
           { nombre: 'Renovaciones' },
           { nombre: 'Cambio de propietario' },
@@ -154,6 +160,7 @@ export const es = {
     intro: 'Nuestro principal objetivo es seguir expandiendo recorridos por todo Estados Unidos.',
     ciudades: ['Tijuana', 'Mexicali', 'San Diego', 'Los Ángeles'],
     todo: 'Entregas en todo Estados Unidos',
+    mapa: 'Mapa de las rutas: de Tijuana a Mexicali, San Diego y Los Ángeles, y hacia el resto de Estados Unidos',
   },
 
   contacto: {

@@ -1,0 +1,108 @@
+---
+// El mapa esquemático de las rutas (PLAN_sitio A6, DEC-010): no es a escala,
+// sólo pone las cuatro ciudades a cada lado de la frontera y las une desde
+// Tijuana. Los nombres salen de los textos de cada idioma.
+import type { Textos } from '../i18n/es';
+
+interface Props {
+  t: Textos['rutas'];
+}
+
+const { t } = Astro.props;
+const [tijuana, mexicali, sanDiego, losAngeles] = t.ciudades;
+---
+
+<svg class="mapa" viewBox="0 0 360 280" role="img" aria-labelledby="mapa-rutas-titulo">
+  <title id="mapa-rutas-titulo">{t.mapa}</title>
+  <defs>
+    <marker
+      id="mapa-rutas-flecha"
+      viewBox="0 0 10 10"
+      refX="7"
+      refY="5"
+      markerWidth="5"
+      markerHeight="5"
+      orient="auto-start-reverse"
+    >
+      <path d="M0 0 10 5 0 10z" class="punta" />
+    </marker>
+  </defs>
+
+  <rect class="tierra" width="360" height="280" />
+  <!-- El Pacífico, a la izquierda. -->
+  <path
+    class="mar"
+    d="M0 0H70C60 50 85 90 80 130 75 165 95 185 100 205 105 230 95 255 105 280H0z"
+  />
+  <!-- La frontera. -->
+  <path class="frontera" d="M100 198H350" />
+
+  <!-- Hacia el resto de Estados Unidos. -->
+  <path class="resto" d="M125 110C200 100 260 80 330 40" marker-end="url(#mapa-rutas-flecha)" />
+
+  <!-- Las rutas, desde Tijuana. -->
+  <path class="ruta" d="M130 228 120 165" />
+  <path class="ruta" d="M120 165C135 120 105 100 115 55" />
+  <path class="ruta" d="M130 228C190 245 220 245 270 228" />
+
+  <circle class="ciudad" cx="115" cy="55" r="7" />
+  <circle class="ciudad" cx="120" cy="165" r="7" />
+  <circle class="ciudad" cx="130" cy="228" r="7" />
+  <circle class="ciudad" cx="270" cy="228" r="7" />
+
+  <text x="132" y="61">{losAngeles}</text>
+  <text x="137" y="171">{sanDiego}</text>
+  <text x="130" y="262" text-anchor="middle">{tijuana}</text>
+  <text x="270" y="262" text-anchor="middle">{mexicali}</text>
+</svg>
+
+<style>
+  .mapa {
+    display: block;
+    width: 100%;
+    max-width: 36rem;
+    height: auto;
+    margin: 0 auto 2rem;
+    border-radius: 0.25rem;
+  }
+  .tierra {
+    fill: var(--fondo-alterno);
+  }
+  .mar {
+    fill: var(--celeste);
+    opacity: 0.35;
+  }
+  .frontera {
+    fill: none;
+    stroke: var(--gris);
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+  }
+  .resto {
+    fill: none;
+    stroke: var(--gris);
+    stroke-width: 2.5;
+    stroke-dasharray: 2 7;
+    stroke-linecap: round;
+  }
+  .punta {
+    fill: var(--gris);
+  }
+  .ruta {
+    fill: none;
+    stroke: var(--rojo);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .ciudad {
+    fill: var(--rojo);
+    stroke: var(--blanco);
+    stroke-width: 3;
+  }
+  text {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 17px;
+    fill: var(--gris);
+  }
+</style>

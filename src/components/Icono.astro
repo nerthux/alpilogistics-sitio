@@ -1,0 +1,45 @@
+---
+// Los íconos lineales de las tarjetas (PLAN_sitio A6, DEC-010), dibujados
+// aquí y en línea para que tomen el color del texto (`currentColor`). Son
+// decorativos: el título de la tarjeta ya dice qué es.
+
+interface Props {
+  nombre: string;
+}
+
+const { nombre } = Astro.props;
+
+const dibujos: Record<string, string> = {
+  // Tractocamión de perfil.
+  operaciones:
+    '<path d="M4 17H2V6h11v11"/><path d="M8 17h7"/><path d="M13 9h4.5l3.5 3.5V17h-2"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+  // Hoja con palomita.
+  documentacion:
+    '<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="m9 14.5 2 2 4-4"/>',
+  // Almacén con cortina.
+  beneficios:
+    '<path d="M3 21V9l9-5 9 5v12"/><path d="M7 21v-8h10v8"/><path d="M7 16h10"/><path d="M7 18.5h10"/>',
+  // Escudo con estrella: los trámites federales.
+  usa: '<path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path fill="currentColor" stroke-width="1" d="M12 8.3l.76 2.15 2.28.06-1.8 1.39.64 2.19L12 12.8l-1.88 1.29.64-2.19-1.8-1.39 2.28-.06z"/>',
+  // Placa de vehículo.
+  dmv: '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="5.5" cy="9" r=".5"/><circle cx="18.5" cy="9" r=".5"/><path d="M7 12.5h10"/><path d="M9 15.5h6"/>',
+  // Carretera.
+  sct: '<path d="M4 21 9 3"/><path d="M20 21 15 3"/><path d="M12 4v2"/><path d="M12 10v3"/><path d="M12 17v3"/>',
+};
+
+const dibujo = dibujos[nombre];
+if (!dibujo) throw new Error(`Icono: no hay dibujo para «${nombre}»`);
+---
+
+<svg
+  class="icono"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+  set:html={dibujo}
+/>

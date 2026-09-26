@@ -1,5 +1,6 @@
 ---
-// Las cuatro ciudades. El mapa SVG llega con el sprint `sitio-en` (A6).
+// Las cuatro ciudades: el mapa y, debajo, la lista en texto.
+import MapaRutas from './MapaRutas.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
@@ -13,6 +14,8 @@ const { t } = Astro.props;
   <div class="contenedor">
     <h2>{t.titulo}</h2>
     <p class="intro">{t.intro}</p>
+
+    <MapaRutas t={t} />
 
     <ol class="ciudades">
       {t.ciudades.map((c) => <li>{c}</li>)}
