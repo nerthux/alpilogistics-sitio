@@ -1,0 +1,47 @@
+# Construye el sitio y lo publica en GitHub Pages en cada push a `main`
+# (PLAN_publicacion C4). `site` y `base` salen de las variables del repo; sin
+# ellas, lo de GitHub Pages (C5). Con el dominio, se ponen SITIO_URL y
+# SITIO_BASE en las variables del repo y un `CNAME`, sin tocar código.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITIO_URL: ${{ vars.SITIO_URL || 'https://nerthux.github.io' }}
+          SITIO_BASE: ${{ vars.SITIO_BASE || '/alpilogistics-sitio' }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
