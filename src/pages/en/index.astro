@@ -1,0 +1,10 @@
+---
+// La página en inglés, en `/en/` (DEC-008).
+import Pagina from '../../components/Pagina.astro';
+import { en as t } from '../../i18n/en';
+
+// La portada del WordPress en inglés da el teléfono de San Diego.
+const operaciones = t.contacto.departamentos[0];
+---
+
+<Pagina t={t} telefono={{ texto: operaciones.telefono, tel: operaciones.tel }} />

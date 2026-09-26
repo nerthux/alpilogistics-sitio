@@ -1,32 +1,10 @@
 ---
-// La página en español: una sola, con secciones ancladas (DEC-007).
-import Base from '../layouts/Base.astro';
-import Encabezado from '../components/Encabezado.astro';
-import Portada from '../components/Portada.astro';
-import Nosotros from '../components/Nosotros.astro';
-import Servicios from '../components/Servicios.astro';
-import Tramites from '../components/Tramites.astro';
-import Rutas from '../components/Rutas.astro';
-import Contacto from '../components/Contacto.astro';
-import Pie from '../components/Pie.astro';
+// La página en español, en `/` (DEC-008).
+import Pagina from '../components/Pagina.astro';
 import { es as t } from '../i18n/es';
 
 // La portada del WordPress en español da el teléfono de Tijuana.
 const administracion = t.contacto.departamentos[1];
 ---
 
-<Base lang={t.lang} titulo={t.titulo} descripcion={t.descripcion}>
-  <Encabezado t={t.menu} titulo={t.titulo} />
-  <main>
-    <Portada
-      t={t.portada}
-      telefono={{ texto: administracion.telefono, tel: administracion.tel }}
-    />
-    <Nosotros t={t.nosotros} />
-    <Servicios t={t.servicios} />
-    <Tramites t={t.tramites} />
-    <Rutas t={t.rutas} />
-    <Contacto t={t.contacto} />
-  </main>
-  <Pie t={t.pie} titulo={t.titulo} />
-</Base>
+<Pagina t={t} telefono={{ texto: administracion.telefono, tel: administracion.tel }} />

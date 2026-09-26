@@ -1,7 +1,7 @@
 // Los textos en español de la página (PLAN_sitio A2). Salen del WordPress
 // (DEC-006): la versión 2022 manda y lo que sólo está en la de 2019 entra
 // también (empresa.md, B4). Se corrigieron faltas y se partieron las frases
-// largas, sin cambiar lo que dicen. `en.ts` tendrá la misma forma.
+// largas, sin cambiar lo que dicen. `en.ts` tiene la misma forma.
 
 export const es = {
   lang: 'es',
@@ -20,6 +20,8 @@ export const es = {
       { href: '#rutas', texto: 'Rutas' },
       { href: '#contacto', texto: 'Contacto' },
     ],
+    // El selector lleva al otro idioma (DEC-008).
+    idioma: { texto: 'EN', etiqueta: 'Read in English', lang: 'en' },
   },
 
   portada: {

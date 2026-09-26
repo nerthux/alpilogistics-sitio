@@ -1,7 +1,8 @@
 ---
 // Logo y menú de anclas (DEC-007). En el teléfono el menú se pliega en un
 // <details>: se abre y se cierra sin JavaScript; el script sólo lo cierra
-// al elegir una sección.
+// al elegir una sección. Al lado, el selector ES/EN (DEC-008).
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import logo from '../assets/logo.svg?url';
 import type { Textos } from '../i18n/es';
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { t, titulo } = Astro.props;
+const otro = t.idioma;
 ---
 
 <header class="encabezado">
@@ -29,6 +31,14 @@ const { t, titulo } = Astro.props;
         {t.enlaces.map((e) => <li><a href={e.href}>{e.texto}</a></li>)}
       </ul>
     </nav>
+    <a
+      class="idioma"
+      href={getRelativeLocaleUrl(otro.lang)}
+      hreflang={otro.lang}
+      lang={otro.lang}
+      aria-label={otro.etiqueta}
+      title={otro.etiqueta}>{otro.texto}</a
+    >
   </div>
 </header>
 
@@ -38,6 +48,13 @@ const { t, titulo } = Astro.props;
   document.querySelectorAll<HTMLDetailsElement>('.plegable').forEach((d) => {
     d.addEventListener('click', (e) => {
       if ((e.target as Element).closest('a')) d.open = false;
+    });
+  });
+  // Las anclas son las mismas en los dos idiomas: el selector lleva a la
+  // sección en la que se está. Sin esto, lleva al principio de la página.
+  document.querySelectorAll<HTMLAnchorElement>('.idioma').forEach((a) => {
+    a.addEventListener('click', () => {
+      a.hash = location.hash;
     });
   });
 </script>
@@ -53,8 +70,11 @@ const { t, titulo } = Astro.props;
   .fila {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
     height: var(--alto-encabezado);
+  }
+  .fila nav {
+    margin-left: auto;
   }
   .marca img {
     display: block;
@@ -111,6 +131,19 @@ const { t, titulo } = Astro.props;
 
   .extendido {
     display: none;
+  }
+
+  .idioma {
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--rojo);
+    border-radius: 0.25rem;
+    color: var(--rojo);
+    line-height: 1;
+  }
+  .idioma:hover,
+  .idioma:focus-visible {
+    background: var(--rojo);
+    color: var(--blanco);
   }
 
   @media (min-width: 48rem) {

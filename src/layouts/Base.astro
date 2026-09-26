@@ -1,5 +1,6 @@
 ---
 // El esqueleto de la página, uno para los dos idiomas (DEC-008).
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import '../styles/global.css';
 
 interface Props {
@@ -11,6 +12,15 @@ interface Props {
 const { lang, titulo, descripcion } = Astro.props;
 // Lo de `public/` no pasa por Vite: hay que ponerle `base` a mano (C5).
 const raiz = import.meta.env.BASE_URL.replace(/\/$/, '');
+// `hreflang` pide URL absolutas, y ésas salen de `site`, que la CI pone
+// (DEC-031); en local no hay `site` y se omite.
+const alternos = Astro.site
+  ? [
+      { hreflang: 'es', href: getAbsoluteLocaleUrl('es') },
+      { hreflang: 'en', href: getAbsoluteLocaleUrl('en') },
+      { hreflang: 'x-default', href: getAbsoluteLocaleUrl('es') },
+    ]
+  : [];
 ---
 
 <html lang={lang}>
@@ -20,6 +30,7 @@ const raiz = import.meta.env.BASE_URL.replace(/\/$/, '');
     <link rel="icon" type="image/svg+xml" href={`${raiz}/favicon.svg`} />
     <title>{titulo}</title>
     <meta name="description" content={descripcion} />
+    {alternos.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   </head>
   <body>
     <slot />
