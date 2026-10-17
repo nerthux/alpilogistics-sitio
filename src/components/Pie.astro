@@ -1,5 +1,5 @@
 ---
-// El logo para fondo oscuro y Facebook.
+// El logo para fondo oscuro.
 import logoOscuro from '../assets/logo-oscuro.svg?url';
 import type { Textos } from '../i18n/es';
 
@@ -15,10 +15,7 @@ const anio = new Date().getFullYear();
 <footer class="pie">
   <div class="contenedor fila">
     <img src={logoOscuro} alt={titulo} width="990" height="640" />
-    <div>
-      <p><a href={t.facebookUrl} rel="noopener">{t.facebook}</a></p>
-      <p>© {anio} {t.derechos}</p>
-    </div>
+    <p>© {anio} {t.derechos}</p>
   </div>
 </footer>
 
@@ -41,9 +38,5 @@ const anio = new Date().getFullYear();
   }
   p {
     margin: 0.25rem 0;
-  }
-  a {
-    color: var(--celeste);
-    font-weight: 600;
   }
 </style>

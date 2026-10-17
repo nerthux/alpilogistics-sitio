@@ -1,5 +1,6 @@
 ---
-// Los tres grupos de servicios y lo demás que ofrece el sitio.
+// Los servicios en tres tarjetas y los adicionales, cada tarjeta con su
+// ícono (PLAN_contenido D3, DEC-038).
 import Icono from './Icono.astro';
 import type { Textos } from '../i18n/es';
 
@@ -13,7 +14,6 @@ const { t } = Astro.props;
 <section id="servicios" class="seccion">
   <div class="contenedor">
     <h2>{t.titulo}</h2>
-    <p class="intro">{t.intro}</p>
 
     <div class="rejilla">
       {
@@ -27,30 +27,51 @@ const { t } = Astro.props;
       }
     </div>
 
-    <div class="ademas">
-      <h3>{t.ademasTitulo}</h3>
-      <ul>{t.ademas.map((a) => <li>{a}</li>)}</ul>
+    <h3 class="adicionales">{t.adicionalesTitulo}</h3>
+    <div class="rejilla cinco">
+      {
+        t.adicionales.map((a) => (
+          <article class="tarjeta">
+            <Icono nombre={a.icono} />
+            <h4>{a.titulo}</h4>
+            <ul>{a.puntos.map((p) => <li>{p}</li>)}</ul>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  .ademas {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--gris);
-    color: var(--blanco);
-    border-left: 0.5rem solid var(--celeste);
-    border-radius: 0.25rem;
+  .adicionales {
+    margin: 2.5rem 0 1.5rem;
   }
-  .ademas h3 {
-    margin-top: 0;
+  h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.125rem;
+    margin: 0 0 0.75rem;
   }
-  .ademas ul {
-    margin: 0;
-    padding-left: 1.25rem;
-    display: grid;
-    gap: 0.25rem 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+
+  /* Cinco tarjetas no llenan los renglones de la rejilla: la última se
+     quedaba sola. Con dos columnas, la última ocupa el renglón; con tres,
+     van tres y dos, las dos más anchas. */
+  @media (min-width: 35.5rem) and (max-width: 55.99rem) {
+    .cinco {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cinco > :last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 56rem) {
+    .cinco {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .cinco > * {
+      grid-column: span 2;
+    }
+    .cinco > :nth-child(n + 4) {
+      grid-column: span 3;
+    }
   }
 </style>

@@ -3,8 +3,8 @@
 import Pagina from '../components/Pagina.astro';
 import { es as t } from '../i18n/es';
 
-// La portada del WordPress en español da el teléfono de Tijuana.
-const administracion = t.contacto.departamentos[1];
+// La portada da el teléfono de la Gerente de Ventas (DEC-047).
+const gerente = t.contacto.equipo[0];
 ---
 
-<Pagina t={t} telefono={{ texto: administracion.telefono, tel: administracion.tel }} />
+<Pagina t={t} telefono={{ texto: gerente.telefono, tel: gerente.tel }} />

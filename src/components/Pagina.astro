@@ -1,13 +1,13 @@
 ---
 // La página, una sola para los dos idiomas (DEC-007, DEC-008): cada idioma
-// le pasa sus textos y el teléfono de su portada.
+// le pasa sus textos y el teléfono de su portada. La descripción para
+// buscadores es «¿Quiénes somos?» entero (DEC-021, PLAN_contenido D9).
 import Base from '../layouts/Base.astro';
 import Encabezado from './Encabezado.astro';
 import Portada from './Portada.astro';
 import Nosotros from './Nosotros.astro';
 import Servicios from './Servicios.astro';
-import Tramites from './Tramites.astro';
-import Rutas from './Rutas.astro';
+import Instalaciones from './Instalaciones.astro';
 import Contacto from './Contacto.astro';
 import Pie from './Pie.astro';
 import type { Textos } from '../i18n/es';
@@ -20,14 +20,13 @@ interface Props {
 const { t, telefono } = Astro.props;
 ---
 
-<Base lang={t.lang} titulo={t.titulo} descripcion={t.descripcion}>
+<Base lang={t.lang} titulo={t.titulo} descripcion={t.portada.quienes.join(' ')}>
   <Encabezado t={t.menu} titulo={t.titulo} />
   <main>
     <Portada t={t.portada} telefono={telefono} />
     <Nosotros t={t.nosotros} />
     <Servicios t={t.servicios} />
-    <Tramites t={t.tramites} />
-    <Rutas t={t.rutas} />
+    <Instalaciones t={t.instalaciones} />
     <Contacto t={t.contacto} />
   </main>
   <Pie t={t.pie} titulo={t.titulo} />

@@ -1,5 +1,5 @@
 ---
-// Historia, misión, visión, valores y departamentos.
+// Misión, visión y las áreas de la empresa (PLAN_contenido D3).
 import type { Textos } from '../i18n/es';
 
 interface Props {
@@ -13,11 +13,6 @@ const { t } = Astro.props;
   <div class="contenedor">
     <h2>{t.titulo}</h2>
 
-    <div class="historia">
-      <h3>{t.historiaTitulo}</h3>
-      {t.historia.map((p) => <p>{p}</p>)}
-    </div>
-
     <div class="rejilla">
       <article class="tarjeta">
         <h3>{t.misionTitulo}</h3>
@@ -27,21 +22,29 @@ const { t } = Astro.props;
         <h3>{t.visionTitulo}</h3>
         <p>{t.vision}</p>
       </article>
-      <article class="tarjeta">
-        <h3>{t.valoresTitulo}</h3>
-        <ul>{t.valores.map((v) => <li>{v}</li>)}</ul>
-      </article>
-      <article class="tarjeta">
-        <h3>{t.departamentosTitulo}</h3>
-        <ul>{t.departamentos.map((d) => <li>{d}</li>)}</ul>
-      </article>
+    </div>
+
+    <h3 class="areas">{t.areasTitulo}</h3>
+    <div class="rejilla">
+      {
+        t.areas.map((a) => (
+          <article class="tarjeta">
+            <h4>{a.titulo}</h4>
+            <ul>{a.puntos.map((p) => <li>{p}</li>)}</ul>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  .historia {
-    max-width: 44rem;
-    margin-bottom: 2rem;
+  .areas {
+    margin: 2.5rem 0 1.5rem;
+  }
+  h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.125rem;
+    margin: 0 0 0.75rem;
   }
 </style>
