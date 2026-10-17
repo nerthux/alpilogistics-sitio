@@ -6,9 +6,6 @@ import type { Textos } from './es';
 export const en: Textos = {
   lang: 'en',
   titulo: 'ALPI Logistics',
-  // Para buscadores (PLAN_sitio A8): «Who are we?» en una línea.
-  descripcion:
-    'ALPI Logistics is a binational logistics and transportation company. We support maquiladoras, customs agencies, brokerages and carriers.',
 
   menu: {
     abrir: 'Menu',
@@ -38,14 +35,14 @@ export const en: Textos = {
     titulo: 'About us',
     misionTitulo: 'Mission',
     mision:
-      'Achieve total customer satisfaction through the most efficient procedures, exceeding their expectations with personalized, honest and professional service, and taking an active part in achieving their goals.',
+      'To achieve total customer satisfaction through the most efficient procedures, exceeding their expectations with personalized, honest and professional service, and taking an active part in achieving their goals.',
     visionTitulo: 'Vision',
     vision:
-      'Consolidate ourselves as the leading logistics company, offering all the essential services to achieve a quality global service, built on clear procedures and goals, and achieving the satisfaction of our customers, partners and collaborators.',
-    areasTitulo: 'Company areas',
+      'To establish ourselves as the leading logistics company, offering all the essential services to provide quality global service, built on clear procedures and goals, and achieving the satisfaction of our customers, partners and collaborators.',
+    areasTitulo: 'Our areas',
     areas: [
       {
-        titulo: 'Operations',
+        titulo: 'Operational areas',
         puntos: [
           'Port dispatch: Long Beach and Ensenada',
           'Air, consolidated and ground operations',
@@ -58,7 +55,7 @@ export const en: Textos = {
         ],
       },
       {
-        titulo: 'Administration',
+        titulo: 'Administrative areas',
         puntos: [
           'Systems',
           'Accounting',
@@ -84,8 +81,8 @@ export const en: Textos = {
           'Dispatch of shipments to the eastern and northern U.S.',
           'Dispatch of shipments to the interior of Mexico',
           'Units: box trucks, step vans, tractors with 53-foot dry vans, containers and flatbeds',
-          'Pick-ups at origin, initially in China, with shipping to the U.S. and logistics to the final destination in Mexico',
-          'Chassis operation: pick-ups at terminals and contracts with shipping lines and chassis companies',
+          'Pickups at origin, initially in China, with shipping to the U.S. and logistics to the final destination in Mexico',
+          'Chassis operation: pickups at terminals and contracts with shipping lines and chassis companies',
           'Rail transportation from San Diego to the interior of Mexico',
         ],
       },
@@ -94,7 +91,7 @@ export const en: Textos = {
         icono: 'documentacion',
         puntos: [
           'In Bond documentation (T&E)',
-          'Customs clearance, pick-up, documents and payment coverage for the full release of transit orders in the U.S.: air, consolidated and ocean containers',
+          'Customs clearance, pickup, documents and payment coverage for the full release of transit orders in the U.S.: air, consolidated and ocean containers',
           'Documentation: ISF, manifest, shipper and In Bond',
         ],
       },
@@ -146,7 +143,7 @@ export const en: Textos = {
         ],
       },
       {
-        titulo: 'Our own In Bond',
+        titulo: 'Our own In Bond surety',
         icono: 'fianza',
         puntos: [
           'We advise our customers on which In Bond best suits their type of operation',
