@@ -16,6 +16,7 @@ export const es = {
       { href: '#inicio', texto: 'Inicio' },
       { href: '#nosotros', texto: 'Nosotros' },
       { href: '#servicios', texto: 'Servicios' },
+      { href: '#instalaciones', texto: 'Instalaciones' },
       { href: '#contacto', texto: 'Contacto' },
     ],
     // El selector lleva al otro idioma (DEC-008).
@@ -116,6 +117,7 @@ export const es = {
     adicionales: [
       {
         titulo: 'Facturación México & USA',
+        icono: 'facturacion',
         puntos: [
           'Forma W9 (USA)',
           'Constancia de situación fiscal',
@@ -125,6 +127,7 @@ export const es = {
       },
       {
         titulo: 'Validación en CTPAT',
+        icono: 'ctpat',
         puntos: [
           'Seguridad y confianza en cada proceso de importación y exportación',
           'Cuenta CTPAT: #52150535',
@@ -132,20 +135,23 @@ export const es = {
       },
       {
         titulo: 'Cobertura de carga ante siniestros',
+        icono: 'cobertura',
         puntos: [
           'Entrega de certificados de aseguranza a los clientes y amplia cobertura ante siniestros',
         ],
       },
       {
         titulo: 'Seguridad y monitoreo 24/7',
+        icono: 'monitoreo',
         puntos: [
           'Monitoreo en vivo de las unidades',
-          'Servicio de inspección K-9',
+          'Servicio de inspección K‑9',
           'Instalaciones con seguridad privada',
         ],
       },
       {
         titulo: 'Fianza In Bond propia',
+        icono: 'fianza',
         puntos: [
           'Asesoramos a nuestros clientes indicando cuál es el In Bond que más beneficia a su régimen de operación',
           'Ofrecemos total seguimiento desde que se genera el In Bond hasta su cancelación',
@@ -154,32 +160,95 @@ export const es = {
     ],
   },
 
-  contacto: {
-    titulo: '¿Tiene alguna pregunta?',
-    intro:
-      'Resuelva sus dudas con nosotros: queremos apoyarle para que todos sus procesos sean sencillos y fáciles de realizar.',
-    directorioTitulo: 'Directorio',
-    departamentos: [
+  instalaciones: {
+    titulo: 'Instalaciones',
+    // Las fotos de las diapositivas 7 a 10, en su orden (DEC-046); `archivo`
+    // es el nombre en `src/assets/instalaciones/`, sin el `.png`.
+    grupos: [
       {
-        nombre: 'Operaciones',
-        telefono: '(619) 734-8807',
-        tel: '+16197348807',
-        correo: 'operations.alpilogistics@outlook.com',
+        titulo: 'Yardas en Tijuana y San Diego',
+        fotos: [
+          {
+            archivo: 'yarda-aerea',
+            alt: 'Vista aérea de la yarda con cajas secas y contenedores estacionados en hileras',
+          },
+          {
+            archivo: 'yarda-tractocamiones',
+            alt: 'Tractocamiones y cajas secas estacionados en la yarda',
+          },
+          {
+            archivo: 'yarda-seguridad',
+            alt: 'Guardia de seguridad con un perro de inspección K-9 en la yarda',
+          },
+          {
+            archivo: 'yarda-inspeccion',
+            alt: 'Guardia con un espejo de inspección para revisar las unidades',
+          },
+          {
+            archivo: 'yarda-acceso',
+            alt: 'Tractocamión blanco en el acceso a la yarda, bajo una cámara de vigilancia',
+          },
+          {
+            archivo: 'yarda-camion-caja',
+            alt: 'Camión de caja seca de ALPI Logistics',
+          },
+        ],
       },
       {
-        nombre: 'Administración',
-        telefono: '(664) 382 6352',
-        tel: '+526643826352',
-        correo: 'contabilidad.alpitransport@gmail.com',
+        titulo: 'Broker y almacén en San Diego',
+        fotos: [
+          {
+            archivo: 'almacen-andenes-interior',
+            alt: 'Andenes de carga del almacén vistos desde dentro',
+          },
+          {
+            archivo: 'almacen-montacargas',
+            alt: 'Montacargas dentro del almacén',
+          },
+          {
+            archivo: 'almacen-interior',
+            alt: 'Interior del almacén con mercancía en tarimas',
+          },
+          {
+            archivo: 'almacen-andenes-exterior',
+            alt: 'Andenes del almacén por fuera, con cajas secas en las puertas',
+          },
+        ],
       },
     ],
-    llamar: 'Llámenos',
-    escribir: 'Escríbanos',
-    ubicacionTitulo: 'Nuestra ubicación',
-    direccion: ['2498 Roll Dr. #1169', 'San Diego, CA 92154'],
-    mapa: 'Ver en el mapa',
-    mapaUrl:
-      'https://www.google.com/maps/search/?api=1&query=2498+Roll+Dr+%231169+San+Diego+CA+92154',
+  },
+
+  contacto: {
+    titulo: 'Contáctenos',
+    // El equipo de ventas de la presentación, con `tel:` y WhatsApp
+    // (DEC-047). La portada da el teléfono del primero.
+    equipo: [
+      {
+        puesto: 'Gerente de Ventas',
+        nombre: 'Miriam A. Reynoso',
+        telefono: '+52 (664) 821 4157',
+        tel: '+526648214157',
+        whatsapp: 'https://wa.me/526648214157',
+      },
+      {
+        puesto: 'Supervisor de Ventas',
+        nombre: 'Sergio Ramírez',
+        telefono: '+52 (664) 369 3359',
+        tel: '+526643693359',
+        whatsapp: 'https://wa.me/526643693359',
+      },
+      {
+        puesto: 'Coordinador de Ventas',
+        nombre: 'David Rivera',
+        telefono: '+52 (664) 651 1956',
+        tel: '+526646511956',
+        whatsapp: 'https://wa.me/526646511956',
+      },
+    ],
+    llamar: 'Llamar',
+    whatsappTexto: 'WhatsApp',
+    escribir: 'Escríbanos a',
+    correo: 'ventas@alpilogistics.com.mx',
   },
 
   pie: {

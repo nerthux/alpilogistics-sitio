@@ -19,6 +19,21 @@ const dibujos: Record<string, string> = {
   // Almacén con cortina.
   almacenes:
     '<path d="M3 21V9l9-5 9 5v12"/><path d="M7 21v-8h10v8"/><path d="M7 16h10"/><path d="M7 18.5h10"/>',
+  // Factura con el borde de abajo en zigzag.
+  facturacion:
+    '<path d="M5 3h14v18l-2.5-1.5L14 21l-2-1.5-2 1.5-2.5-1.5L5 21z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/>',
+  // Escudo con palomita (CTPAT).
+  ctpat:
+    '<path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-4.5"/>',
+  // Paraguas: la cobertura de la carga.
+  cobertura:
+    '<path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v6.5a2 2 0 0 1-4 0"/>',
+  // Cámara de vigilancia en su brazo.
+  monitoreo:
+    '<path d="m3 8 13-4 2 6-13 4z"/><path d="m16 10 4 1v-5l-3 1"/><path d="M7 13.5 8 17"/><path d="M4 17h6"/><path d="M4 15v4"/>',
+  // Candado: la mercancía bajo fianza In Bond.
+  fianza:
+    '<rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/>',
 };
 
 const dibujo = dibujos[nombre];

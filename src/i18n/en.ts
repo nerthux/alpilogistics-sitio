@@ -16,6 +16,7 @@ export const en: Textos = {
       { href: '#inicio', texto: 'Home' },
       { href: '#nosotros', texto: 'About us' },
       { href: '#servicios', texto: 'Services' },
+      { href: '#instalaciones', texto: 'Facilities' },
       { href: '#contacto', texto: 'Contact' },
     ],
     idioma: { texto: 'ES', etiqueta: 'Ver en español', lang: 'es' },
@@ -112,6 +113,7 @@ export const en: Textos = {
     adicionales: [
       {
         titulo: 'Invoicing in Mexico & USA',
+        icono: 'facturacion',
         puntos: [
           'W9 form (USA)',
           'Mexican tax status certificate (constancia de situación fiscal)',
@@ -121,6 +123,7 @@ export const en: Textos = {
       },
       {
         titulo: 'CTPAT validation',
+        icono: 'ctpat',
         puntos: [
           'Security and confidence in every import and export process',
           'CTPAT account: #52150535',
@@ -128,20 +131,23 @@ export const en: Textos = {
       },
       {
         titulo: 'Cargo coverage against losses',
+        icono: 'cobertura',
         puntos: [
           'Insurance certificates for our customers and broad coverage against losses',
         ],
       },
       {
         titulo: 'Security and 24/7 monitoring',
+        icono: 'monitoreo',
         puntos: [
           'Live monitoring of our units',
-          'K-9 inspection service',
+          'K‑9 inspection service',
           'Facilities with private security',
         ],
       },
       {
         titulo: 'Our own In Bond',
+        icono: 'fianza',
         puntos: [
           'We advise our customers on which In Bond best suits their type of operation',
           'We provide full follow-up from the moment the In Bond is issued until it is cancelled',
@@ -150,32 +156,91 @@ export const en: Textos = {
     ],
   },
 
-  contacto: {
-    titulo: 'Do you have any questions?',
-    intro:
-      'Let us answer your questions: we want to support you so that all your processes are simple and easy to carry out.',
-    directorioTitulo: 'Directory',
-    departamentos: [
+  instalaciones: {
+    titulo: 'Facilities',
+    grupos: [
       {
-        nombre: 'Operations',
-        telefono: '(619) 734-8807',
-        tel: '+16197348807',
-        correo: 'operations.alpilogistics@outlook.com',
+        titulo: 'Yards in Tijuana and San Diego',
+        fotos: [
+          {
+            archivo: 'yarda-aerea',
+            alt: 'Aerial view of the yard with dry vans and containers parked in rows',
+          },
+          {
+            archivo: 'yarda-tractocamiones',
+            alt: 'Tractor-trailers and dry vans parked in the yard',
+          },
+          {
+            archivo: 'yarda-seguridad',
+            alt: 'Security guard with a K-9 inspection dog in the yard',
+          },
+          {
+            archivo: 'yarda-inspeccion',
+            alt: 'Guard with an inspection mirror for checking the units',
+          },
+          {
+            archivo: 'yarda-acceso',
+            alt: 'White tractor at the yard entrance, under a security camera',
+          },
+          {
+            archivo: 'yarda-camion-caja',
+            alt: 'ALPI Logistics box truck',
+          },
+        ],
       },
       {
-        nombre: 'Administration',
-        telefono: '(664) 382 6352',
-        tel: '+526643826352',
-        correo: 'contabilidad.alpitransport@gmail.com',
+        titulo: 'Broker and warehouse in San Diego',
+        fotos: [
+          {
+            archivo: 'almacen-andenes-interior',
+            alt: 'Loading docks of the warehouse seen from inside',
+          },
+          {
+            archivo: 'almacen-montacargas',
+            alt: 'Forklift inside the warehouse',
+          },
+          {
+            archivo: 'almacen-interior',
+            alt: 'Inside the warehouse, with goods on pallets',
+          },
+          {
+            archivo: 'almacen-andenes-exterior',
+            alt: 'Warehouse loading docks from outside, with dry vans at the doors',
+          },
+        ],
       },
     ],
-    llamar: 'Call us',
-    escribir: 'Email us',
-    ubicacionTitulo: 'Our location',
-    direccion: ['2498 Roll Dr. #1169', 'San Diego, CA 92154'],
-    mapa: 'View on the map',
-    mapaUrl:
-      'https://www.google.com/maps/search/?api=1&query=2498+Roll+Dr+%231169+San+Diego+CA+92154',
+  },
+
+  contacto: {
+    titulo: 'Contact us',
+    equipo: [
+      {
+        puesto: 'Sales Manager',
+        nombre: 'Miriam A. Reynoso',
+        telefono: '+52 (664) 821 4157',
+        tel: '+526648214157',
+        whatsapp: 'https://wa.me/526648214157',
+      },
+      {
+        puesto: 'Sales Supervisor',
+        nombre: 'Sergio Ramírez',
+        telefono: '+52 (664) 369 3359',
+        tel: '+526643693359',
+        whatsapp: 'https://wa.me/526643693359',
+      },
+      {
+        puesto: 'Sales Coordinator',
+        nombre: 'David Rivera',
+        telefono: '+52 (664) 651 1956',
+        tel: '+526646511956',
+        whatsapp: 'https://wa.me/526646511956',
+      },
+    ],
+    llamar: 'Call',
+    whatsappTexto: 'WhatsApp',
+    escribir: 'Email us at',
+    correo: 'ventas@alpilogistics.com.mx',
   },
 
   pie: {

@@ -1,5 +1,6 @@
 ---
-// Los servicios en tres tarjetas y los adicionales (PLAN_contenido D3).
+// Los servicios en tres tarjetas y los adicionales, cada tarjeta con su
+// ícono (PLAN_contenido D3, DEC-038).
 import Icono from './Icono.astro';
 import type { Textos } from '../i18n/es';
 
@@ -31,6 +32,7 @@ const { t } = Astro.props;
       {
         t.adicionales.map((a) => (
           <article class="tarjeta">
+            <Icono nombre={a.icono} />
             <h4>{a.titulo}</h4>
             <ul>{a.puntos.map((p) => <li>{p}</li>)}</ul>
           </article>
