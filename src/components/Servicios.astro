@@ -28,7 +28,7 @@ const { t } = Astro.props;
     </div>
 
     <h3 class="adicionales">{t.adicionalesTitulo}</h3>
-    <div class="rejilla">
+    <div class="rejilla cinco">
       {
         t.adicionales.map((a) => (
           <article class="tarjeta">
@@ -50,5 +50,28 @@ const { t } = Astro.props;
     font-family: var(--fuente-titulos);
     font-size: 1.125rem;
     margin: 0 0 0.75rem;
+  }
+
+  /* Cinco tarjetas no llenan los renglones de la rejilla: la última se
+     quedaba sola. Con dos columnas, la última ocupa el renglón; con tres,
+     van tres y dos, las dos más anchas. */
+  @media (min-width: 35.5rem) and (max-width: 55.99rem) {
+    .cinco {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cinco > :last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 56rem) {
+    .cinco {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .cinco > * {
+      grid-column: span 2;
+    }
+    .cinco > :nth-child(n + 4) {
+      grid-column: span 3;
+    }
   }
 </style>
