@@ -1,7 +1,6 @@
-// Los textos en inglés de la página (DEC-008), con la forma de `es.ts`. Salen
-// de la portada de 2019 EN del WordPress, puestos al día con lo que cambió en
-// 2022 (DEC-006) y con las correcciones del español (DEC-018, DEC-019): se
-// arreglaron las faltas y las frases mal traducidas, sin cambiar lo que dicen.
+// Los textos en inglés de la página (DEC-008), con la forma de `es.ts`: la
+// presentación sólo está en español, así que se traducen de él
+// (PLAN_contenido D8).
 import type { Textos } from './es';
 
 export const en: Textos = {
@@ -17,149 +16,138 @@ export const en: Textos = {
       { href: '#inicio', texto: 'Home' },
       { href: '#nosotros', texto: 'About us' },
       { href: '#servicios', texto: 'Services' },
-      { href: '#tramites', texto: 'Formalities' },
-      { href: '#rutas', texto: 'Routes' },
       { href: '#contacto', texto: 'Contact' },
     ],
     idioma: { texto: 'ES', etiqueta: 'Ver en español', lang: 'es' },
   },
 
   portada: {
-    lema: 'We offer you the delivery of goods in a timely manner',
-    reconocidos:
-      'We are recognized for working with good quality companies that have enjoyed our services and are pleased with the results.',
+    lema: 'All your logistics and services in one place',
     fotoAlt: 'Red ALPI Logistics truck hauling an ocean shipping container',
     contactanos: 'Contact us',
     llamanos: 'Or call us at',
     quienesTitulo: 'Who are we?',
     quienes: [
-      'ALPI Logistics is a binational logistics and transportation company with a leading role in the Mexican logistics sector.',
-      'We support small, medium and large companies in the private sector:',
+      'ALPI Logistics LLC is a binational company providing comprehensive transportation, brokerage and international logistics solutions.',
+      'We provide transportation and logistics services to facilitate the movement of goods between China, the United States, Mexico and other international destinations, with personalized attention and follow-up on every operation.',
     ],
-    clientes: ['Maquiladoras', 'Customs agencies', 'Brokerages', 'Carriers'],
   },
 
   nosotros: {
     titulo: 'About us',
-    historiaTitulo: 'History',
-    historia: [
-      'We are a young and innovative company founded by its C.E.O., who has extensive experience: more than 15 years back us.',
-      'ALPI Logistics has experience in warehousing and bonds to import goods from China to the United States and Mexico, with a team of professionally trained staff to provide excellent service to its customers.',
-      'We operate at the Tijuana, B.C., border customs office, and we have operations representation at the ports of San Diego and Long Beach, CA.',
-    ],
     misionTitulo: 'Mission',
     mision:
       'Achieve total customer satisfaction through the most efficient procedures, exceeding their expectations with personalized, honest and professional service, and taking an active part in achieving their goals.',
     visionTitulo: 'Vision',
     vision:
-      'Consolidate ourselves as the leading logistics company, offering all the essential services to achieve a quality global service and the satisfaction of our customers, partners and collaborators.',
-    valoresTitulo: 'Values',
-    valores: ['Honesty', 'Punctuality', 'Teamwork', 'Empathy', 'Commitment'],
-    departamentosTitulo: 'Departments',
-    departamentos: ['Dispatch', 'Operations', 'Accounting', 'Human Resources', 'Administration'],
+      'Consolidate ourselves as the leading logistics company, offering all the essential services to achieve a quality global service, built on clear procedures and goals, and achieving the satisfaction of our customers, partners and collaborators.',
+    areasTitulo: 'Company areas',
+    areas: [
+      {
+        titulo: 'Operations',
+        puntos: [
+          'Port dispatch: Long Beach and Ensenada',
+          'Air, consolidated and ground operations',
+          'Import and export department',
+          'Sales department',
+          'Customer service',
+          'CTPAT',
+          'Unit monitoring',
+          'Safety',
+        ],
+      },
+      {
+        titulo: 'Administration',
+        puntos: [
+          'Systems',
+          'Accounting',
+          'Human Resources',
+          'Administration',
+          'Document management',
+          'Unit maintenance',
+          'Purchasing',
+          'Payroll',
+        ],
+      },
+    ],
   },
 
   servicios: {
-    titulo: 'What services do we offer?',
-    intro:
-      'The following services provide the support our clients need to meet their expectations with us.',
+    titulo: 'Our services',
     grupos: [
       {
-        titulo: 'Operations',
+        titulo: 'Transportation and operations',
         icono: 'operaciones',
         puntos: [
-          'Chassis operation',
-          'Operations services at the port of Ensenada',
-          'Pick-ups at terminals',
-          'Contracts with shipping lines and chassis companies',
-          'Pick-ups in China',
-          'Shipments to the U.S. and crossings to San Diego',
-          'Import and export of box trucks, step vans and tractors with 53-foot dry vans',
-          'Dispatch of shipments to the northern and southern U.S.',
-          'Air shipments at the San Diego and Los Angeles airports',
+          'Full import and export service',
+          'Dispatch of shipments to the eastern and northern U.S.',
+          'Dispatch of shipments to the interior of Mexico',
+          'Units: box trucks, step vans, tractors with 53-foot dry vans, containers and flatbeds',
+          'Pick-ups at origin, initially in China, with shipping to the U.S. and logistics to the final destination in Mexico',
+          'Chassis operation: pick-ups at terminals and contracts with shipping lines and chassis companies',
+          'Rail transportation from San Diego to the interior of Mexico',
         ],
       },
       {
-        titulo: 'Documentation and permits',
+        titulo: 'Documentation and customs',
         icono: 'documentacion',
         puntos: [
-          'In-Bond documentation (T&E)',
-          'U.S. transit permits',
-          'Import permits',
-          'Bond and ISF documentation',
-          'Trading company and customs agency in Tijuana and Ensenada',
-          'Documentation: manifests, shippers, T&E',
+          'In Bond documentation (T&E)',
+          'Customs clearance, pick-up, documents and payment coverage for the full release of transit orders in the U.S.: air, consolidated and ocean containers',
+          'Documentation: ISF, manifest, shipper and In Bond',
         ],
       },
       {
-        titulo: 'Benefits',
-        icono: 'beneficios',
+        titulo: 'Warehouses and yards',
+        icono: 'almacenes',
         puntos: [
           'Warehouse in San Diego and Tijuana',
-          'Yard in San Diego',
-          'Transit logistics at the ports of Long Beach and Los Angeles',
-          'Customs clearance at the San Diego and Los Angeles airports',
+          'Yard in San Diego and Tijuana',
+          'Transit logistics at the ports of Long Beach, airlines and bonded warehouses at LAX and San Diego',
+          'Bonded warehouse in San Diego, Calexico, Nogales and Douglas, AZ',
         ],
       },
     ],
-    ademasTitulo: 'All logistics and services in one place',
-    ademas: [
-      'Imports from China to the United States and Mexico',
-      'Security in your shipments: cross your merchandise without paying taxes in the U.S.',
-      'Deliveries in Tijuana and San Diego, and pick-ups in Long Beach and LAX',
-      'Safe shipping throughout California',
-      'Deliveries to any state in the United States',
-      'All our units are monitored by GPS 24/7',
-    ],
-  },
-
-  tramites: {
-    titulo: 'Our main formalities',
-    intro: 'We advise our clients so they can complete the necessary documentation, legally.',
-    grupos: [
+    adicionalesTitulo: 'Additional services',
+    adicionales: [
       {
-        titulo: 'USA',
-        icono: 'usa',
+        titulo: 'Invoicing in Mexico & USA',
         puntos: [
-          { sigla: 'PNP', nombre: 'Pull Notice Program' },
-          { sigla: 'SCAC', nombre: 'Standard Carrier Alpha Code' },
-          { sigla: 'Form 2290', nombre: 'Heavy Highway Vehicle Use Tax Return' },
-          { sigla: 'IFTA', nombre: 'International Fuel Tax Agreement' },
-          { sigla: 'UCR', nombre: 'Unified Carrier Registration' },
-          { sigla: 'US Customs', nombre: 'US Customs Decal' },
-          { sigla: 'Diesel', nombre: 'Interstate User Diesel Fuel Tax Return' },
+          'W9 form (USA)',
+          'Mexican tax status certificate (constancia de situación fiscal)',
+          'Positive tax compliance opinion from the SAT',
+          'Service contract',
         ],
       },
       {
-        titulo: 'DMV',
-        icono: 'dmv',
+        titulo: 'CTPAT validation',
         puntos: [
-          { nombre: 'Renewals' },
-          { nombre: 'Change of ownership' },
-          { nombre: 'Registration of Mexican vehicles' },
-          { nombre: 'Duplicate registrations, stickers and plates' },
+          'Security and confidence in every import and export process',
+          'CTPAT account: #52150535',
         ],
       },
       {
-        titulo: 'SCT',
-        icono: 'sct',
+        titulo: 'Cargo coverage against losses',
         puntos: [
-          { nombre: 'Renewals' },
-          { nombre: 'Change of ownership' },
-          { nombre: 'Vehicle additions' },
-          { nombre: 'Vehicle removals' },
-          { nombre: 'New registrations' },
+          'Insurance certificates for our customers and broad coverage against losses',
+        ],
+      },
+      {
+        titulo: 'Security and 24/7 monitoring',
+        puntos: [
+          'Live monitoring of our units',
+          'K-9 inspection service',
+          'Facilities with private security',
+        ],
+      },
+      {
+        titulo: 'Our own In Bond',
+        puntos: [
+          'We advise our customers on which In Bond best suits their type of operation',
+          'We provide full follow-up from the moment the In Bond is issued until it is cancelled',
         ],
       },
     ],
-  },
-
-  rutas: {
-    titulo: 'What routes do we offer?',
-    intro: 'Our main goal is to keep expanding our routes throughout the United States.',
-    ciudades: ['Tijuana', 'Mexicali', 'San Diego', 'Los Angeles'],
-    todo: 'Deliveries throughout the United States',
-    mapa: 'Route map: from Tijuana to Mexicali, San Diego and Los Angeles, and on to the rest of the United States',
   },
 
   contacto: {
@@ -191,8 +179,6 @@ export const en: Textos = {
   },
 
   pie: {
-    facebook: 'Facebook',
-    facebookUrl: 'https://www.facebook.com/pg/alpilogistics/about/',
     derechos: 'ALPI Logistics',
   },
 };

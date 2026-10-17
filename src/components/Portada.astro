@@ -1,6 +1,5 @@
 ---
-// El lema sobre la foto del tractocamión, la única foto del sitio (DEC-010),
-// y quiénes somos.
+// El lema sobre la foto del tractocamión (DEC-046) y quiénes somos.
 import { Picture } from 'astro:assets';
 import tractocamion from '../assets/tractocamion.jpg';
 import type { Textos } from '../i18n/es';
@@ -26,7 +25,6 @@ const { t, telefono } = Astro.props;
     />
     <div class="contenedor sobre">
       <h1>{t.lema}</h1>
-      <p>{t.reconocidos}</p>
       <div class="acciones">
         <a class="boton" href="#contacto">{t.contactanos}</a>
         <span>{t.llamanos} <a href={`tel:${telefono.tel}`}>{telefono.texto}</a></span>
@@ -37,9 +35,6 @@ const { t, telefono } = Astro.props;
   <div class="contenedor quienes">
     <h2>{t.quienesTitulo}</h2>
     {t.quienes.map((p) => <p>{p}</p>)}
-    <ul>
-      {t.clientes.map((c) => <li>{c}</li>)}
-    </ul>
   </div>
 </section>
 
@@ -77,10 +72,6 @@ const { t, telefono } = Astro.props;
   h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
     max-width: 18ch;
-    margin: 0 0 1rem;
-  }
-  .sobre p {
-    max-width: 40rem;
     margin: 0 0 1.5rem;
   }
   .acciones {
@@ -103,18 +94,5 @@ const { t, telefono } = Astro.props;
   }
   .quienes p {
     max-width: 44rem;
-  }
-  .quienes ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .quienes li {
-    border: 2px solid var(--celeste);
-    border-radius: 999px;
-    padding: 0.25rem 1rem;
-    font-weight: 600;
   }
 </style>

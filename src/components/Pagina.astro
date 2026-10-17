@@ -6,8 +6,6 @@ import Encabezado from './Encabezado.astro';
 import Portada from './Portada.astro';
 import Nosotros from './Nosotros.astro';
 import Servicios from './Servicios.astro';
-import Tramites from './Tramites.astro';
-import Rutas from './Rutas.astro';
 import Contacto from './Contacto.astro';
 import Pie from './Pie.astro';
 import type { Textos } from '../i18n/es';
@@ -26,8 +24,6 @@ const { t, telefono } = Astro.props;
     <Portada t={t.portada} telefono={telefono} />
     <Nosotros t={t.nosotros} />
     <Servicios t={t.servicios} />
-    <Tramites t={t.tramites} />
-    <Rutas t={t.rutas} />
     <Contacto t={t.contacto} />
   </main>
   <Pie t={t.pie} titulo={t.titulo} />

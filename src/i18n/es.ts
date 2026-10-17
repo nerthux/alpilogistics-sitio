@@ -1,7 +1,7 @@
-// Los textos en español de la página (PLAN_sitio A2). Salen del WordPress
-// (DEC-006): la versión 2022 manda y lo que sólo está en la de 2019 entra
-// también (empresa.md, B4). Se corrigieron faltas y se partieron las frases
-// largas, sin cambiar lo que dicen. `en.ts` tiene la misma forma.
+// Los textos en español de la página. Salen de la presentación de ALPI
+// Logistics (DEC-043): lo que no está en ella no entra. Van de usted y con
+// las faltas corregidas, sin cambiar lo que dicen (PLAN_contenido D1).
+// `en.ts` tiene la misma forma.
 
 export const es = {
   lang: 'es',
@@ -16,8 +16,6 @@ export const es = {
       { href: '#inicio', texto: 'Inicio' },
       { href: '#nosotros', texto: 'Nosotros' },
       { href: '#servicios', texto: 'Servicios' },
-      { href: '#tramites', texto: 'Trámites' },
-      { href: '#rutas', texto: 'Rutas' },
       { href: '#contacto', texto: 'Contacto' },
     ],
     // El selector lleva al otro idioma (DEC-008).
@@ -25,142 +23,135 @@ export const es = {
   },
 
   portada: {
-    lema: 'Le ofrecemos la entrega de mercancía en tiempo y forma',
-    reconocidos:
-      'Somos reconocidos por trabajar con empresas de buena calidad, que han disfrutado de nuestros servicios y quedan complacidas con lo realizado.',
+    lema: 'Toda su logística y servicios en un solo lugar',
     fotoAlt: 'Tractocamión rojo de ALPI Logistics con un contenedor marítimo',
     contactanos: 'Contáctenos',
     llamanos: 'O llámenos al',
     quienesTitulo: '¿Quiénes somos?',
     quienes: [
-      'ALPI Logistics es una empresa binacional de logística y transporte con un papel de liderazgo dentro del sector logístico mexicano.',
-      'Brindamos apoyo a empresas chicas, medianas y grandes del sector privado:',
+      'ALPI Logistics LLC es una empresa binacional de soluciones integrales de transporte, brokerage y logística internacional.',
+      'Brindamos servicios de transporte y logística para facilitar el movimiento de mercancías entre China, Estados Unidos, México y otros destinos internacionales, con atención personalizada y seguimiento en cada operación.',
     ],
-    clientes: ['Maquiladoras', 'Agencias aduanales', 'Brokerages', 'Transportistas'],
   },
 
   nosotros: {
     titulo: 'Nosotros',
-    historiaTitulo: 'Historia',
-    historia: [
-      'Somos una empresa joven e innovadora, fundada por su C.E.O., quien cuenta con una amplia experiencia: más de 15 años nos avalan.',
-      'ALPI Logistics tiene experiencia en almacenaje y fianzas para importar mercancía de China a Estados Unidos y México, con un equipo de colaboradores profesionalmente capacitados para brindar un excelente servicio a sus clientes.',
-      'Realizamos operaciones en la Aduana Fronteriza de Tijuana, B.C., y tenemos representación de operaciones en los puertos de San Diego y Long Beach, CA.',
-    ],
     misionTitulo: 'Misión',
     mision:
-      'Lograr la satisfacción total del cliente mediante los procedimientos más eficientes, superando sus expectativas con una atención personalizada, honesta y profesional, y formando parte activa en la consecución de sus objetivos.',
+      'Lograr la satisfacción total del cliente mediante los procedimientos más eficientes, superando sus expectativas a través de una atención personalizada, honesta y profesional, y formando parte activa en la consecución de sus objetivos.',
     visionTitulo: 'Visión',
     vision:
-      'Consolidarnos como la empresa líder en logística, ofreciendo todos los servicios indispensables para lograr un servicio global de calidad y la satisfacción de nuestros clientes, socios y colaboradores.',
-    valoresTitulo: 'Valores',
-    valores: ['Honestidad', 'Puntualidad', 'Trabajo en equipo', 'Empatía', 'Compromiso'],
-    departamentosTitulo: 'Departamentos',
-    departamentos: ['Despacho', 'Operaciones', 'Contabilidad', 'Recursos Humanos', 'Administración'],
+      'Consolidarnos como la empresa líder en logística, ofreciendo todos los servicios indispensables para lograr un servicio global de calidad, con procedimientos y objetivos claros como base, y logrando la satisfacción de nuestros clientes, socios y colaboradores.',
+    areasTitulo: 'Áreas de la empresa',
+    areas: [
+      {
+        titulo: 'Áreas operativas',
+        puntos: [
+          'Despacho de puerto: Long Beach y Ensenada',
+          'Operaciones aéreas, consolidadas y terrestres',
+          'Departamento de importación y exportación',
+          'Departamento de ventas',
+          'Servicio al cliente',
+          'CTPAT',
+          'Monitoreo de unidades',
+          'Safety',
+        ],
+      },
+      {
+        titulo: 'Áreas administrativas',
+        puntos: [
+          'Sistemas',
+          'Contabilidad',
+          'Recursos Humanos',
+          'Administración',
+          'Gestión de documentos',
+          'Mantenimiento de unidades',
+          'Compras',
+          'Nóminas',
+        ],
+      },
+    ],
   },
 
   servicios: {
-    titulo: '¿Qué servicios ofrecemos?',
-    intro:
-      'Los siguientes servicios brindan el apoyo necesario para que nuestros clientes cumplan sus expectativas junto a nosotros.',
+    titulo: 'Nuestros servicios',
+    // Los 14 de la presentación, agrupados en tres tarjetas con un ícono
+    // cada una (DEC-038).
     grupos: [
       {
-        titulo: 'Operaciones',
+        titulo: 'Transporte y operaciones',
         icono: 'operaciones',
         puntos: [
-          'Operación de chasis',
-          'Servicios de operaciones en el puerto de Ensenada',
-          'Recolección en terminales',
-          'Contratos con navieras y compañías de chasis',
-          'Recolecciones en China',
-          'Envíos a EE. UU. y cruces a San Diego',
-          'Importación y exportación de rabones, step vans y tractores con caja seca de 53',
-          'Despacho de envíos hacia el norte y el sur de EE. UU.',
-          'Envíos aéreos en San Diego y el aeropuerto de Los Ángeles',
+          'Servicio completo de importación y exportación',
+          'Despacho de envíos hacia el este y el norte de EE. UU.',
+          'Despacho de envíos hacia el interior de la República Mexicana',
+          'Unidades: rabón, step van, tractores con caja seca de 53", contenedores y plataformas',
+          'Recolecciones desde el origen, inicialmente en China, con envío a EE. UU. y logística hasta el destino en México',
+          'Operación de chasis: recolección en terminales y contratos con navieras y compañías de chasis',
+          'Transporte ferroviario de San Diego al interior de la República Mexicana',
         ],
       },
       {
-        titulo: 'Documentación y permisos',
+        titulo: 'Documentación y aduanas',
         icono: 'documentacion',
         puntos: [
-          'Documentación In-Bond (T&E)',
-          'Permisos de tránsito en EE. UU.',
-          'Permisos de importación',
-          'Fianza y documentación ISF',
-          'Comercializadora y agencia aduanal en Tijuana y Ensenada',
-          'Documentación: manifiestos, shippers, T&E',
+          'Documentación In Bond (T&E)',
+          'Liberación de aduana, recolección, documentos y cobertura de pagos para la liberación completa de órdenes de tránsito en EE. UU.: aéreas, consolidadas y contenedores marítimos',
+          'Documentación: ISF, manifiesto, shipper e In Bond',
         ],
       },
       {
-        titulo: 'Beneficios',
-        icono: 'beneficios',
+        titulo: 'Almacenes y yardas',
+        icono: 'almacenes',
         puntos: [
           'Almacén en San Diego y Tijuana',
-          'Yarda en San Diego',
-          'Logística de tránsito en los puertos de Long Beach y Los Ángeles',
-          'Liberación de aduanas en los aeropuertos de San Diego y Los Ángeles',
+          'Yarda en San Diego y Tijuana',
+          'Logística de tránsito en los puertos de Long Beach, aerolíneas y almacenes fiscales en LAX y San Diego',
+          'Almacén bonded en San Diego, Calexico, Nogales y Douglas, AZ',
         ],
       },
     ],
-    ademasTitulo: 'Toda la logística y servicios en un solo lugar',
-    ademas: [
-      'Importaciones desde China a Estados Unidos y México',
-      'Seguridad en sus envíos: cruce su mercancía sin pagar impuestos en EE. UU.',
-      'Entregas en Tijuana y San Diego, y recolección en Long Beach y LAX',
-      'Envíos seguros en todo California',
-      'Entregas en cualquier estado de los Estados Unidos',
-      'Todas nuestras unidades se monitorean por GPS las 24 horas, los 7 días',
-    ],
-  },
-
-  tramites: {
-    titulo: 'Nuestros principales trámites',
-    intro:
-      'Asesoramos a nuestros clientes para realizar la documentación necesaria y de forma legal.',
-    grupos: [
+    adicionalesTitulo: 'Servicios adicionales',
+    // Sin el texto de relleno de la presentación (DEC-047).
+    adicionales: [
       {
-        titulo: 'USA',
-        icono: 'usa',
+        titulo: 'Facturación México & USA',
         puntos: [
-          { sigla: 'PNP', nombre: 'Pull Notice Program' },
-          { sigla: 'SCAC', nombre: 'Standard Carrier Alpha Code' },
-          { sigla: 'Forma 2290', nombre: 'Heavy Highway Vehicle Use Tax Return' },
-          { sigla: 'IFTA', nombre: 'International Fuel Tax Agreement' },
-          { sigla: 'UCR', nombre: 'Unified Carrier Registration' },
-          { sigla: 'US Customs', nombre: 'US Customs Decal' },
-          { sigla: 'Diésel', nombre: 'Interstate User Diesel Fuel Tax Return' },
+          'Forma W9 (USA)',
+          'Constancia de situación fiscal',
+          'Opinión positiva del SAT',
+          'Entrega de contrato de servicios',
         ],
       },
       {
-        titulo: 'DMV',
-        icono: 'dmv',
+        titulo: 'Validación en CTPAT',
         puntos: [
-          { nombre: 'Renovaciones' },
-          { nombre: 'Cambio de propietario' },
-          { nombre: 'Registro de vehículos mexicanos' },
-          { nombre: 'Duplicado de registros, stickers y láminas' },
+          'Seguridad y confianza en cada proceso de importación y exportación',
+          'Cuenta CTPAT: #52150535',
         ],
       },
       {
-        titulo: 'SCT',
-        icono: 'sct',
+        titulo: 'Cobertura de carga ante siniestros',
         puntos: [
-          { nombre: 'Renovaciones' },
-          { nombre: 'Cambio de propietario' },
-          { nombre: 'Altas' },
-          { nombre: 'Bajas' },
-          { nombre: 'Nuevos registros' },
+          'Entrega de certificados de aseguranza a los clientes y amplia cobertura ante siniestros',
+        ],
+      },
+      {
+        titulo: 'Seguridad y monitoreo 24/7',
+        puntos: [
+          'Monitoreo en vivo de las unidades',
+          'Servicio de inspección K-9',
+          'Instalaciones con seguridad privada',
+        ],
+      },
+      {
+        titulo: 'Fianza In Bond propia',
+        puntos: [
+          'Asesoramos a nuestros clientes indicando cuál es el In Bond que más beneficia a su régimen de operación',
+          'Ofrecemos total seguimiento desde que se genera el In Bond hasta su cancelación',
         ],
       },
     ],
-  },
-
-  rutas: {
-    titulo: '¿Qué rutas ofrecemos?',
-    intro: 'Nuestro principal objetivo es seguir expandiendo recorridos por todo Estados Unidos.',
-    ciudades: ['Tijuana', 'Mexicali', 'San Diego', 'Los Ángeles'],
-    todo: 'Entregas en todo Estados Unidos',
-    mapa: 'Mapa de las rutas: de Tijuana a Mexicali, San Diego y Los Ángeles, y hacia el resto de Estados Unidos',
   },
 
   contacto: {
@@ -192,8 +183,6 @@ export const es = {
   },
 
   pie: {
-    facebook: 'Facebook',
-    facebookUrl: 'https://www.facebook.com/pg/alpilogistics/about/',
     derechos: 'ALPI Logistics',
   },
 };
