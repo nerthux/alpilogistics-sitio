@@ -142,6 +142,14 @@ const { t, lema, etiqueta } = Astro.props;
     background: var(--fondo-alterno);
   }
 
+  /* La elevación es global (`global.css`), pero la sombra de aquí le gana
+     a la de allá: va junto a ella (DEC-054). */
+  @media (hover: hover) {
+    .pieza:hover {
+      box-shadow: var(--sombra-alta);
+    }
+  }
+
   /* El acento en rojo, que va sobre fondo claro (DEC-052): la banda marino
      de Nosotros queda justo arriba. */
   .acento {

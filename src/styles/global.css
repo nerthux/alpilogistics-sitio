@@ -161,9 +161,11 @@ h4 {
   text-transform: uppercase;
 }
 
+/* 0.75 y no menos: con 0.6 el número quedaba en 4.1:1 sobre marino y 3.9:1
+   sobre el fondo alterno, bajo el AA. */
 .etiqueta .numero {
   margin-right: var(--espacio-2);
-  opacity: 0.6;
+  opacity: 0.75;
 }
 
 .sobre-marino .etiqueta {
@@ -240,4 +242,56 @@ h4 {
 .boton:hover,
 .boton:focus-visible {
   background: #6b0000;
+}
+
+/* El movimiento (DEC-054, PLAN_diseno E9), sólo CSS. Las aperturas y las
+   piezas aparecen al entrar en la ventana; donde no hay
+   `animation-timeline` (Firefox) o se pide reducir movimiento, ninguna regla
+   aplica y todo queda estático y visible. Se anima `translate` y no
+   `transform`: la animación se queda en su estado final (`both`) y, sobre
+   `transform`, le ganaría a la elevación del hover. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        translate: 0 1rem;
+      }
+    }
+
+    /* La apertura de la portada no: es lo primero que se ve, y en un
+       teléfono asoma apenas al cargar y se quedaría a medias. */
+    .encabezado-seccion:not(.quienes > *),
+    .pieza,
+    .tarjeta,
+    .galeria figure,
+    .cita {
+      animation: aparecer linear both;
+      /* Después del shorthand, que la deja en `auto`. */
+      animation-timeline: view();
+      /* Termina 6rem después de asomar, sea cual sea el alto de la
+         ventana: con un porcentaje, en una pantalla alta la pieza seguía
+         a medias ya muy adentro. */
+      animation-range: entry 0% entry 6rem;
+    }
+  }
+}
+
+/* Al pasar el mouse, las piezas y las tarjetas se elevan; la transición,
+   sólo si no se pide reducir movimiento. */
+@media (hover: hover) {
+  .pieza:hover,
+  .tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-alta);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pieza,
+  .tarjeta {
+    transition:
+      transform 150ms ease-out,
+      box-shadow 150ms ease-out;
+  }
 }
