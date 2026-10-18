@@ -2,18 +2,20 @@
 // El equipo de ventas de la presentación, con enlaces que se tocan
 // (DEC-047): `tel:`, WhatsApp y el correo de ventas. El formulario espera
 // §3.B.
+import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
   t: Textos['contacto'];
+  etiqueta: Etiqueta;
 }
 
-const { t } = Astro.props;
+const { t, etiqueta } = Astro.props;
 ---
 
 <section id="contacto" class="seccion">
   <div class="contenedor">
-    <h2>{t.titulo}</h2>
+    <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
     <div class="rejilla">
       {
@@ -50,7 +52,7 @@ const { t } = Astro.props;
     margin: 0.25rem 0;
   }
   .correo {
-    margin: 2rem 0 0;
+    margin: var(--espacio-6) 0 0;
   }
   a {
     color: var(--rojo);

@@ -2,18 +2,20 @@
 // Los servicios en tres tarjetas y los adicionales, cada tarjeta con su
 // ícono (PLAN_contenido D3, DEC-038).
 import Icono from './Icono.astro';
+import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
   t: Textos['servicios'];
+  etiqueta: Etiqueta;
 }
 
-const { t } = Astro.props;
+const { t, etiqueta } = Astro.props;
 ---
 
 <section id="servicios" class="seccion">
   <div class="contenedor">
-    <h2>{t.titulo}</h2>
+    <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
     <div class="rejilla">
       {
@@ -44,12 +46,7 @@ const { t } = Astro.props;
 
 <style>
   .adicionales {
-    margin: 2.5rem 0 1.5rem;
-  }
-  h4 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.125rem;
-    margin: 0 0 0.75rem;
+    margin: 2.5rem 0 var(--espacio-5);
   }
 
   /* Cinco tarjetas no llenan los renglones de la rejilla: la última se

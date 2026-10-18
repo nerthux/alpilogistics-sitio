@@ -1,0 +1,30 @@
+---
+// La apertura de cada sección (PLAN_diseno E3): una etiqueta pequeña, el
+// título grande y, si la sección la tiene, una entrada en el slot; en
+// escritorio, título y entrada en dos columnas. La etiqueta es la del menú,
+// con su número, y no se lee: repite lo que ya dice el menú.
+
+export interface Etiqueta {
+  numero: string;
+  texto: string;
+}
+
+interface Props {
+  etiqueta: Etiqueta;
+  titulo: string;
+}
+
+const { etiqueta, titulo } = Astro.props;
+const conEntrada = Astro.slots.has('default');
+---
+
+<header class:list={['encabezado-seccion', { 'con-entrada': conEntrada }]}>
+  <div class="titulo">
+    <p class="etiqueta" aria-hidden="true">
+      <span class="numero">{etiqueta.numero}</span>
+      {etiqueta.texto}
+    </p>
+    <h2>{titulo}</h2>
+  </div>
+  {conEntrada && <div class="entrada"><slot /></div>}
+</header>
