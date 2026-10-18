@@ -2,6 +2,8 @@
 // La página, una sola para los dos idiomas (DEC-007, DEC-008): cada idioma
 // le pasa sus textos y el teléfono de su portada. La descripción para
 // buscadores es «¿Quiénes somos?» entero (DEC-021, PLAN_contenido D9).
+// La etiqueta de cada sección es su enlace del menú, con su número
+// (PLAN_diseno E3).
 import Base from '../layouts/Base.astro';
 import Encabezado from './Encabezado.astro';
 import Portada from './Portada.astro';
@@ -10,6 +12,7 @@ import Servicios from './Servicios.astro';
 import Instalaciones from './Instalaciones.astro';
 import Contacto from './Contacto.astro';
 import Pie from './Pie.astro';
+import type { Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
@@ -18,16 +21,22 @@ interface Props {
 }
 
 const { t, telefono } = Astro.props;
+
+function etiqueta(href: string): Etiqueta {
+  const i = t.menu.enlaces.findIndex((e) => e.href === href);
+  if (i < 0) throw new Error(`Pagina: no hay enlace del menú «${href}»`);
+  return { numero: String(i + 1).padStart(2, '0'), texto: t.menu.enlaces[i].texto };
+}
 ---
 
 <Base lang={t.lang} titulo={t.titulo} descripcion={t.portada.quienes.join(' ')}>
   <Encabezado t={t.menu} titulo={t.titulo} />
   <main>
-    <Portada t={t.portada} telefono={telefono} />
-    <Nosotros t={t.nosotros} />
-    <Servicios t={t.servicios} />
-    <Instalaciones t={t.instalaciones} />
-    <Contacto t={t.contacto} />
+    <Portada t={t.portada} telefono={telefono} etiqueta={etiqueta('#inicio')} />
+    <Nosotros t={t.nosotros} etiqueta={etiqueta('#nosotros')} />
+    <Servicios t={t.servicios} lema={t.portada.lema} etiqueta={etiqueta('#servicios')} />
+    <Instalaciones t={t.instalaciones} etiqueta={etiqueta('#instalaciones')} />
+    <Contacto t={t.contacto} etiqueta={etiqueta('#contacto')} />
   </main>
   <Pie t={t.pie} titulo={t.titulo} />
 </Base>

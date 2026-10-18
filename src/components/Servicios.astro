@@ -1,77 +1,165 @@
 ---
-// Los servicios en tres tarjetas y los adicionales, cada tarjeta con su
-// ícono (PLAN_contenido D3, DEC-038).
+// Los servicios en bento (DEC-055, PLAN_diseno E5): una sola rejilla con
+// los tres grupos, los adicionales y una pieza de acento con el lema de la
+// portada; un ícono por pieza (DEC-038), la del lema sin ícono.
 import Icono from './Icono.astro';
+import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
   t: Textos['servicios'];
+  lema: string;
+  etiqueta: Etiqueta;
 }
 
-const { t } = Astro.props;
+const { t, lema, etiqueta } = Astro.props;
 ---
 
 <section id="servicios" class="seccion">
   <div class="contenedor">
-    <h2>{t.titulo}</h2>
+    <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
-    <div class="rejilla">
+    <div class="bento">
       {
-        t.grupos.map((g) => (
-          <article class="tarjeta">
+        t.grupos.map((g, i) => (
+          <article class:list={['pieza', i === 0 ? 'grande' : 'mediana', `g${i + 1}`]}>
             <Icono nombre={g.icono} />
             <h3>{g.titulo}</h3>
             <ul>{g.puntos.map((p) => <li>{p}</li>)}</ul>
           </article>
         ))
       }
-    </div>
 
-    <h3 class="adicionales">{t.adicionalesTitulo}</h3>
-    <div class="rejilla cinco">
+      <h3 class="adicionales">{t.adicionalesTitulo}</h3>
       {
-        t.adicionales.map((a) => (
-          <article class="tarjeta">
+        t.adicionales.map((a, i) => (
+          <article class:list={['pieza', 'chica', `a${i + 1}`]}>
             <Icono nombre={a.icono} />
             <h4>{a.titulo}</h4>
             <ul>{a.puntos.map((p) => <li>{p}</li>)}</ul>
           </article>
         ))
       }
+
+      <p class="pieza acento">{lema}</p>
     </div>
   </div>
 </section>
 
 <style>
-  .adicionales {
-    margin: 2.5rem 0 1.5rem;
-  }
-  h4 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.125rem;
-    margin: 0 0 0.75rem;
+  /* En el teléfono, una columna en el orden del DOM. En tableta y en
+     escritorio, ninguna pieza queda sola en un renglón. */
+  .bento {
+    display: grid;
+    gap: var(--espacio-5);
   }
 
-  /* Cinco tarjetas no llenan los renglones de la rejilla: la última se
-     quedaba sola. Con dos columnas, la última ocupa el renglón; con tres,
-     van tres y dos, las dos más anchas. */
-  @media (min-width: 35.5rem) and (max-width: 55.99rem) {
-    .cinco {
+  @media (min-width: 35.5rem) {
+    .bento {
       grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'g1 g1'
+        'g2 g3'
+        'ad ad'
+        'a1 a2'
+        'a3 a4'
+        'a5 lema';
     }
-    .cinco > :last-child {
-      grid-column: 1 / -1;
+
+    /* Las áreas sólo donde hay plantilla: sin ella, todas las piezas caen
+       en la misma celda implícita. */
+    .g1 { grid-area: g1; }
+    .g2 { grid-area: g2; }
+    .g3 { grid-area: g3; }
+    .adicionales { grid-area: ad; }
+    .a1 { grid-area: a1; }
+    .a2 { grid-area: a2; }
+    .a3 { grid-area: a3; }
+    .a4 { grid-area: a4; }
+    .a5 { grid-area: a5; }
+    .acento { grid-area: lema; }
+  }
+
+  @media (min-width: 56rem) {
+    .bento {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        'g1 g1 g2 g2'
+        'g1 g1 g3 g3'
+        'ad ad ad ad'
+        'a1 a2 a3 a4'
+        'a5 a5 lema lema';
     }
   }
-  @media (min-width: 56rem) {
-    .cinco {
-      grid-template-columns: repeat(6, 1fr);
+
+  .adicionales {
+    margin: var(--espacio-6) 0 0;
+  }
+
+  .pieza {
+    margin: 0;
+    border-radius: var(--radio);
+    padding: var(--espacio-5);
+  }
+
+  .pieza :global(.icono) {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: var(--espacio-3);
+    color: var(--rojo);
+  }
+
+  .pieza h3 {
+    margin-top: 0;
+  }
+
+  .pieza ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .grande,
+  .mediana {
+    background: var(--blanco);
+    box-shadow: var(--sombra);
+  }
+
+  .grande {
+    padding: var(--espacio-6);
+  }
+
+  .grande :global(.icono) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .grande h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .chica {
+    background: var(--fondo-alterno);
+  }
+
+  /* La elevación es global (`global.css`), pero la sombra de aquí le gana
+     a la de allá: va junto a ella (DEC-054). */
+  @media (hover: hover) {
+    .pieza:hover {
+      box-shadow: var(--sombra-alta);
     }
-    .cinco > * {
-      grid-column: span 2;
-    }
-    .cinco > :nth-child(n + 4) {
-      grid-column: span 3;
-    }
+  }
+
+  /* El acento en rojo, que va sobre fondo claro (DEC-052): la banda marino
+     de Nosotros queda justo arriba. */
+  .acento {
+    display: flex;
+    align-items: center;
+    background: var(--rojo);
+    color: var(--blanco);
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.15;
   }
 </style>

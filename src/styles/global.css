@@ -11,6 +11,10 @@
   --celeste: #81e8ff;
   --gris: #3a5059;
   --blanco: #ffffff;
+  /* El azul marino de la presentación (DEC-052): bandas oscuras y
+     diagonales. Sobre él, texto blanco y acentos en celeste; el rojo, sólo
+     sobre fondo claro. */
+  --marino: #11307b;
 
   --fuente-titulos: 'Archivo', system-ui, sans-serif;
   --fuente-texto: 'Inter', system-ui, sans-serif;
@@ -41,6 +45,27 @@ h3 {
 :root {
   --alto-encabezado: 4rem;
   --fondo-alterno: #f2f5f6;
+
+  /* Los tokens (PLAN_diseno E2): ningún componente nuevo lleva medidas ni
+     colores sueltos. */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+  --espacio-7: 3rem;
+  --espacio-8: 4rem;
+
+  --radio: 0.75rem;
+  --radio-boton: 0.25rem;
+
+  --sombra: 0 0.25rem 1rem rgb(58 80 89 / 0.08);
+  --sombra-alta: 0 0.75rem 2rem rgb(58 80 89 / 0.16);
+
+  /* El alto del corte diagonal (DEC-053, PLAN_diseno E8): unos 3° del
+     ancho, tan(3°) ≈ 0.0525. */
+  --diagonal: 5.25vw;
 }
 
 html {
@@ -55,41 +80,136 @@ html {
 }
 
 h2 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0 0 var(--espacio-4);
+}
+
+h4 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.125rem;
+  margin: 0 0 var(--espacio-3);
 }
 
 .contenedor {
   max-width: 72rem;
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--espacio-4);
 }
 
 .seccion {
-  padding-block: 4rem;
+  padding-block: var(--espacio-8);
 }
 
 .alterna {
   background: var(--fondo-alterno);
 }
 
-.intro {
-  max-width: 44rem;
-  margin: 0 0 2rem;
+/* La banda marino de borde a borde (DEC-052) y sus cortes diagonales, sólo
+   en los cortes clave (DEC-053): la banda lleva el relleno del corte, así
+   que el contenido nunca queda debajo. Lo recortado deja ver lo que hay
+   detrás. */
+.banda-marino {
+  background: var(--marino);
+  color: var(--blanco);
+  padding-block: var(--espacio-8);
+}
+
+/* La banda sube sobre lo de arriba lo que mide su diagonal, para que el
+   recorte deje ver ese fondo y no el blanco; lo de arriba lleva
+   `.antes-de-diagonal`, que le deja el relleno del corte. */
+.banda-marino.diagonal-arriba {
+  margin-top: calc(-1 * var(--diagonal));
+  padding-top: calc(var(--espacio-8) + var(--diagonal));
+  clip-path: polygon(0 var(--diagonal), 100% 0, 100% 100%, 0 100%);
+}
+
+.antes-de-diagonal {
+  padding-bottom: calc(var(--espacio-8) + var(--diagonal));
+}
+
+.banda-marino.diagonal-abajo {
+  padding-bottom: calc(var(--espacio-8) + var(--diagonal));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--diagonal)), 0 100%);
+}
+
+.banda-marino.diagonal-arriba.diagonal-abajo {
+  clip-path: polygon(
+    0 var(--diagonal),
+    100% 0,
+    100% calc(100% - var(--diagonal)),
+    0 100%
+  );
+}
+
+/* La apertura de sección (PLAN_diseno E3, `EncabezadoSeccion.astro`).
+   Sobre una banda marino, la etiqueta va en celeste (DEC-052). */
+.encabezado-seccion {
+  margin-bottom: var(--espacio-7);
+}
+
+.encabezado-seccion h2 {
+  margin: 0;
+}
+
+.etiqueta {
+  margin: 0 0 var(--espacio-2);
+  color: var(--rojo);
+  font-family: var(--fuente-titulos);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* 0.75 y no menos: con 0.6 el número quedaba en 4.1:1 sobre marino y 3.9:1
+   sobre el fondo alterno, bajo el AA. */
+.etiqueta .numero {
+  margin-right: var(--espacio-2);
+  opacity: 0.75;
+}
+
+.sobre-marino .etiqueta {
+  color: var(--celeste);
+}
+
+.encabezado-seccion .entrada p {
+  margin: 0 0 var(--espacio-4);
+}
+
+.encabezado-seccion .entrada p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 55.99rem) {
+  .encabezado-seccion .entrada {
+    margin-top: var(--espacio-5);
+    max-width: 44rem;
+  }
+}
+
+@media (min-width: 56rem) {
+  .con-entrada {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: var(--espacio-7);
+    align-items: end;
+  }
 }
 
 .rejilla {
   display: grid;
-  gap: 1.5rem;
+  gap: var(--espacio-5);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 
+/* Clara también sobre una banda marino: no hereda el texto blanco. */
 .tarjeta {
   background: var(--blanco);
+  color: var(--gris);
   border-top: 0.375rem solid var(--rojo);
-  border-radius: 0.25rem;
-  padding: 1.5rem;
-  box-shadow: 0 0.25rem 1rem rgb(58 80 89 / 0.08);
+  border-radius: var(--radio);
+  padding: var(--espacio-5);
+  box-shadow: var(--sombra);
 }
 
 .tarjeta h3 {
@@ -100,7 +220,7 @@ h2 {
   display: block;
   width: 2.5rem;
   height: 2.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--espacio-3);
   color: var(--rojo);
 }
 
@@ -115,11 +235,63 @@ h2 {
   color: var(--blanco);
   font-weight: 600;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.25rem;
+  padding: var(--espacio-3) var(--espacio-5);
+  border-radius: var(--radio-boton);
 }
 
 .boton:hover,
 .boton:focus-visible {
   background: #6b0000;
+}
+
+/* El movimiento (DEC-054, PLAN_diseno E9), sólo CSS. Las aperturas y las
+   piezas aparecen al entrar en la ventana; donde no hay
+   `animation-timeline` (Firefox) o se pide reducir movimiento, ninguna regla
+   aplica y todo queda estático y visible. Se anima `translate` y no
+   `transform`: la animación se queda en su estado final (`both`) y, sobre
+   `transform`, le ganaría a la elevación del hover. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        translate: 0 1rem;
+      }
+    }
+
+    /* La apertura de la portada no: es lo primero que se ve, y en un
+       teléfono asoma apenas al cargar y se quedaría a medias. */
+    .encabezado-seccion:not(.quienes > *),
+    .pieza,
+    .tarjeta,
+    .galeria figure,
+    .cita {
+      animation: aparecer linear both;
+      /* Después del shorthand, que la deja en `auto`. */
+      animation-timeline: view();
+      /* Termina 6rem después de asomar, sea cual sea el alto de la
+         ventana: con un porcentaje, en una pantalla alta la pieza seguía
+         a medias ya muy adentro. */
+      animation-range: entry 0% entry 6rem;
+    }
+  }
+}
+
+/* Al pasar el mouse, las piezas y las tarjetas se elevan; la transición,
+   sólo si no se pide reducir movimiento. */
+@media (hover: hover) {
+  .pieza:hover,
+  .tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-alta);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pieza,
+  .tarjeta {
+    transition:
+      transform 150ms ease-out,
+      box-shadow 150ms ease-out;
+  }
 }

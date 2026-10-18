@@ -1,50 +1,100 @@
 ---
-// Misión, visión y las áreas de la empresa (PLAN_contenido D3).
+// Misión, visión y las áreas de la empresa (PLAN_contenido D3), en dos
+// tiempos (PLAN_diseno E4): las áreas en chips sobre claro, y misión y
+// visión en la banda marino, al final, para que el paso a Servicios sea de
+// marino a claro.
+import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
 interface Props {
   t: Textos['nosotros'];
+  etiqueta: Etiqueta;
 }
 
-const { t } = Astro.props;
+const { t, etiqueta } = Astro.props;
 ---
 
-<section id="nosotros" class="seccion alterna">
-  <div class="contenedor">
-    <h2>{t.titulo}</h2>
+<section id="nosotros">
+  <div class="seccion alterna antes-de-diagonal">
+    <div class="contenedor">
+      <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
-    <div class="rejilla">
-      <article class="tarjeta">
+      <h3 class="areas">{t.areasTitulo}</h3>
+      <div class="columnas">
+        {
+          t.areas.map((a) => (
+            <div>
+              <h4>{a.titulo}</h4>
+              <ul class="chips">{a.puntos.map((p) => <li>{p}</li>)}</ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="banda-marino diagonal-arriba diagonal-abajo">
+    <div class="contenedor columnas">
+      <article class="cita">
         <h3>{t.misionTitulo}</h3>
         <p>{t.mision}</p>
       </article>
-      <article class="tarjeta">
+      <article class="cita">
         <h3>{t.visionTitulo}</h3>
         <p>{t.vision}</p>
       </article>
-    </div>
-
-    <h3 class="areas">{t.areasTitulo}</h3>
-    <div class="rejilla">
-      {
-        t.areas.map((a) => (
-          <article class="tarjeta">
-            <h4>{a.titulo}</h4>
-            <ul>{a.puntos.map((p) => <li>{p}</li>)}</ul>
-          </article>
-        ))
-      }
     </div>
   </div>
 </section>
 
 <style>
   .areas {
-    margin: 2.5rem 0 1.5rem;
+    margin: 0 0 var(--espacio-5);
   }
-  h4 {
+
+  .columnas {
+    display: grid;
+    gap: var(--espacio-6);
+  }
+
+  @media (min-width: 56rem) {
+    .columnas {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--espacio-7);
+    }
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .chips li {
+    background: var(--blanco);
+    border-radius: 999px;
+    padding: var(--espacio-2) var(--espacio-4);
+    box-shadow: var(--sombra);
+    font-size: 0.9375rem;
+    line-height: 1.3;
+  }
+
+  .cita h3 {
+    margin: 0 0 var(--espacio-4);
+    color: var(--celeste);
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cita p {
+    margin: 0;
     font-family: var(--fuente-titulos);
-    font-size: 1.125rem;
-    margin: 0 0 0.75rem;
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-weight: 700;
+    line-height: 1.35;
   }
 </style>
