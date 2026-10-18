@@ -114,9 +114,17 @@ h4 {
   padding-block: var(--espacio-8);
 }
 
+/* La banda sube sobre lo de arriba lo que mide su diagonal, para que el
+   recorte deje ver ese fondo y no el blanco; lo de arriba lleva
+   `.antes-de-diagonal`, que le deja el relleno del corte. */
 .banda-marino.diagonal-arriba {
+  margin-top: calc(-1 * var(--diagonal));
   padding-top: calc(var(--espacio-8) + var(--diagonal));
   clip-path: polygon(0 var(--diagonal), 100% 0, 100% 100%, 0 100%);
+}
+
+.antes-de-diagonal {
+  padding-bottom: calc(var(--espacio-8) + var(--diagonal));
 }
 
 .banda-marino.diagonal-abajo {
@@ -192,8 +200,10 @@ h4 {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 
+/* Clara también sobre una banda marino: no hereda el texto blanco. */
 .tarjeta {
   background: var(--blanco);
+  color: var(--gris);
   border-top: 0.375rem solid var(--rojo);
   border-radius: var(--radio);
   padding: var(--espacio-5);

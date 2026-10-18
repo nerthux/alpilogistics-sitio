@@ -2,6 +2,10 @@
 // El equipo de ventas de la presentación, con enlaces que se tocan
 // (DEC-047): `tel:`, WhatsApp y el correo de ventas. El formulario espera
 // §3.B.
+//
+// El cierre de la página (PLAN_diseno E7): una banda marino con la
+// diagonal arriba (DEC-053), las tarjetas claras encima y el correo como
+// botón celeste, porque el rojo no va sobre marino (DEC-052).
 import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
@@ -13,11 +17,11 @@ interface Props {
 const { t, etiqueta } = Astro.props;
 ---
 
-<section id="contacto" class="seccion">
+<section id="contacto" class="banda-marino diagonal-arriba sobre-marino">
   <div class="contenedor">
     <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
-    <div class="rejilla">
+    <div class="equipo">
       {
         t.equipo.map((p) => (
           <article class="tarjeta">
@@ -35,12 +39,23 @@ const { t, etiqueta } = Astro.props;
     </div>
 
     <p class="correo">
-      {t.escribir} <a href={`mailto:${t.correo}`}>{t.correo}</a>
+      {t.escribir}
+      <a class="boton" href={`mailto:${t.correo}`}>{t.correo}</a>
     </p>
   </div>
 </section>
 
 <style>
+  /* Una columna o las tres: nunca una tarjeta sola en un renglón. */
+  .equipo {
+    display: grid;
+    gap: var(--espacio-5);
+  }
+  @media (min-width: 56rem) {
+    .equipo {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
   h3 {
     font-size: 1.125rem;
     margin: 0 0 0.5rem;
@@ -51,12 +66,25 @@ const { t, etiqueta } = Astro.props;
   .tarjeta p {
     margin: 0.25rem 0;
   }
-  .correo {
-    margin: var(--espacio-6) 0 0;
-  }
-  a {
+  .tarjeta a {
     color: var(--rojo);
     font-weight: 600;
     overflow-wrap: anywhere;
+  }
+  .correo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--espacio-3) var(--espacio-4);
+    margin: var(--espacio-7) 0 0;
+  }
+  .boton {
+    background: var(--celeste);
+    color: var(--marino);
+    overflow-wrap: anywhere;
+  }
+  .boton:hover,
+  .boton:focus-visible {
+    background: var(--blanco);
   }
 </style>

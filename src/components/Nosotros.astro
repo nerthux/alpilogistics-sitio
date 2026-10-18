@@ -2,7 +2,7 @@
 // Misión, visión y las áreas de la empresa (PLAN_contenido D3), en dos
 // tiempos (PLAN_diseno E4): las áreas en chips sobre claro, y misión y
 // visión en la banda marino, al final, para que el paso a Servicios sea de
-// marino a claro. La banda sube sobre el gris lo que mide su diagonal.
+// marino a claro.
 import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
@@ -15,7 +15,7 @@ const { t, etiqueta } = Astro.props;
 ---
 
 <section id="nosotros">
-  <div class="seccion alterna claro">
+  <div class="seccion alterna antes-de-diagonal">
     <div class="contenedor">
       <EncabezadoSeccion etiqueta={etiqueta} titulo={t.titulo} />
 
@@ -48,14 +48,6 @@ const { t, etiqueta } = Astro.props;
 </section>
 
 <style>
-  .claro {
-    padding-bottom: calc(var(--espacio-8) + var(--diagonal));
-  }
-
-  .banda-marino {
-    margin-top: calc(-1 * var(--diagonal));
-  }
-
   .areas {
     margin: 0 0 var(--espacio-5);
   }
