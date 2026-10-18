@@ -34,7 +34,7 @@ function etiqueta(href: string): Etiqueta {
   <main>
     <Portada t={t.portada} telefono={telefono} etiqueta={etiqueta('#inicio')} />
     <Nosotros t={t.nosotros} etiqueta={etiqueta('#nosotros')} />
-    <Servicios t={t.servicios} etiqueta={etiqueta('#servicios')} />
+    <Servicios t={t.servicios} lema={t.portada.lema} etiqueta={etiqueta('#servicios')} />
     <Instalaciones t={t.instalaciones} etiqueta={etiqueta('#instalaciones')} />
     <Contacto t={t.contacto} etiqueta={etiqueta('#contacto')} />
   </main>
