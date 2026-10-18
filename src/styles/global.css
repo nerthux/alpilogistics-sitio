@@ -62,6 +62,10 @@ h3 {
 
   --sombra: 0 0.25rem 1rem rgb(58 80 89 / 0.08);
   --sombra-alta: 0 0.75rem 2rem rgb(58 80 89 / 0.16);
+
+  /* El alto del corte diagonal (DEC-053, PLAN_diseno E8): unos 3° del
+     ancho, tan(3°) ≈ 0.0525. */
+  --diagonal: 5.25vw;
 }
 
 html {
@@ -98,6 +102,35 @@ h4 {
 
 .alterna {
   background: var(--fondo-alterno);
+}
+
+/* La banda marino de borde a borde (DEC-052) y sus cortes diagonales, sólo
+   en los cortes clave (DEC-053): la banda lleva el relleno del corte, así
+   que el contenido nunca queda debajo. Lo recortado deja ver lo que hay
+   detrás. */
+.banda-marino {
+  background: var(--marino);
+  color: var(--blanco);
+  padding-block: var(--espacio-8);
+}
+
+.banda-marino.diagonal-arriba {
+  padding-top: calc(var(--espacio-8) + var(--diagonal));
+  clip-path: polygon(0 var(--diagonal), 100% 0, 100% 100%, 0 100%);
+}
+
+.banda-marino.diagonal-abajo {
+  padding-bottom: calc(var(--espacio-8) + var(--diagonal));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--diagonal)), 0 100%);
+}
+
+.banda-marino.diagonal-arriba.diagonal-abajo {
+  clip-path: polygon(
+    0 var(--diagonal),
+    100% 0,
+    100% calc(100% - var(--diagonal)),
+    0 100%
+  );
 }
 
 /* La apertura de sección (PLAN_diseno E3, `EncabezadoSeccion.astro`).
