@@ -21,7 +21,7 @@ export const en: Textos = {
 
   portada: {
     lema: 'All your logistics and services in one place',
-    fotoAlt: 'Red ALPI Logistics truck hauling an ocean shipping container',
+    fotoAlt: 'ALPI Logistics banner, in Spanish: “We connect your world”, smart logistics for a future without limits. International transport, warehousing and distribution, real-time tracking and tailored solutions',
     contactanos: 'Contact us',
     llamanos: 'Or call us at',
     quienesTitulo: 'Who are we?',

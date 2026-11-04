@@ -22,7 +22,7 @@ export const es = {
 
   portada: {
     lema: 'Toda su logística y servicios en un solo lugar',
-    fotoAlt: 'Tractocamión rojo de ALPI Logistics con un contenedor marítimo',
+    fotoAlt: 'ALPI Logistics, «Conectamos tu mundo»: logística inteligente para un futuro sin límites. Transporte internacional, almacenamiento y distribución, seguimiento en tiempo real y soluciones a tu medida',
     contactanos: 'Contáctenos',
     llamanos: 'O llámenos al',
     quienesTitulo: '¿Quiénes somos?',
