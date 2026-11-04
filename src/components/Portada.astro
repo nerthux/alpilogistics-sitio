@@ -1,7 +1,7 @@
 ---
-// El lema sobre la foto del tractocamión (DEC-046) y quiénes somos.
+// El banner de portada (DEC-056), el lema y quiénes somos.
 import { Picture } from 'astro:assets';
-import tractocamion from '../assets/tractocamion.jpg';
+import banner from '../assets/portada.png';
 import EncabezadoSeccion, { type Etiqueta } from './EncabezadoSeccion.astro';
 import type { Textos } from '../i18n/es';
 
@@ -15,17 +15,22 @@ const { t, telefono, etiqueta } = Astro.props;
 ---
 
 <section id="inicio" class="portada">
-  <div class="foto">
+  <div class="banner">
     <Picture
-      src={tractocamion}
+      src={banner}
       alt={t.fotoAlt}
       formats={['avif', 'webp']}
-      widths={[640, 960, 1280]}
+      fallbackFormat="jpg"
+      widths={[640, 960, 1280, 1983]}
       sizes="100vw"
       loading="eager"
       fetchpriority="high"
     />
-    <div class="contenedor sobre">
+    <a class="hablemos" href="#contacto" aria-label={t.contactanos}></a>
+  </div>
+
+  <div class="llamado">
+    <div class="contenedor">
       <h1>{t.lema}</h1>
       <div class="acciones">
         <a class="boton" href="#contacto">{t.contactanos}</a>
@@ -42,35 +47,30 @@ const { t, telefono, etiqueta } = Astro.props;
 </section>
 
 <style>
-  .foto {
+  /* El banner trae su texto dentro: se muestra entero, sin recorte ni capa
+     encima. */
+  .banner {
     position: relative;
-    min-height: 32rem;
-    display: flex;
-    align-items: flex-end;
-    color: var(--blanco);
   }
-  .foto :global(picture),
-  .foto :global(img) {
-    position: absolute;
-    inset: 0;
+  .banner :global(img) {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 30% center;
+    height: auto;
   }
-  .foto::after {
-    content: '';
+  /* El botón «Hablemos» es parte de la imagen: este enlace va encima de él,
+     en porcentajes de la imagen de 1983×793. */
+  .hablemos {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgb(58 80 89 / 0.95) 20%, rgb(58 80 89 / 0.35));
+    left: 5%;
+    top: 82.7%;
+    width: 11%;
+    height: 7.3%;
+    border-radius: 999px;
   }
-  /* flex: 1 para que ocupe el ancho del contenedor: si no, se encoge al
-     texto y margin-inline: auto lo centra, fuera de línea con el logo. */
-  .sobre {
-    flex: 1;
-    position: relative;
-    z-index: 1;
-    padding-block: 3rem;
+  .llamado {
+    background: var(--marino);
+    color: var(--blanco);
+    padding-block: var(--espacio-7);
   }
   h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
@@ -82,6 +82,15 @@ const { t, telefono, etiqueta } = Astro.props;
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem 1.5rem;
+  }
+  /* Sobre marino, nada de rojo (DEC-052): el celeste del botón del banner. */
+  .llamado .boton {
+    background: var(--celeste);
+    color: var(--marino);
+  }
+  .llamado .boton:hover,
+  .llamado .boton:focus-visible {
+    background: var(--blanco);
   }
   .acciones span a {
     color: var(--celeste);
